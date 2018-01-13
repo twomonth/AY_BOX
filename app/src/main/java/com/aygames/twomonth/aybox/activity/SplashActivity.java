@@ -85,7 +85,7 @@ public class SplashActivity extends Activity {
     private void initView() {
         iv_adver = findViewById(R.id.iv_adver);
         tv_version =  findViewById(R.id.tv_version);
-        Glide.with(this).load("https://b-ssl.duitang.com/uploads/item/201510/25/20151025233833_CiuL3.jpeg").error(R.mipmap.logo).into(iv_adver);
+        Glide.with(this).load("https://b-ssl.duitang.com/uploads/item/201507/09/20150709223911_8mTN2.jpeg").error(R.mipmap.logo).into(iv_adver);
     }
     /**
      * 检测版本更新

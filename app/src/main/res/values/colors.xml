@@ -9,6 +9,10 @@
     <color name="colorWhite">#fdfdfd</color>
     <color name="colorWhiteAndBlack">#ededed</color>
     <color name="colorBlackBack">#00ffffff</color>
+    <color name="colorBlackBack2">#27ffffff</color>
     <color name="colorBlack">#000000</color>
     <color name="colorEtback">#9E9396</color>
+    <color name="colorGray">#969696</color>
+    <color name="colorGray2">#dadada</color>
+    <color name="colorGray3">#eaeaea</color>
 </resources>

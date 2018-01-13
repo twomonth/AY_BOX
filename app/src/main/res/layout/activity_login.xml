@@ -56,16 +56,15 @@
                 android:textSize="18dp"
                 android:text="登录"/>
             <TextView
-                android:id="@+id/tv_forget"
+                android:id="@+id/tv_register"
                 android:layout_below="@+id/bt_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="60dp"
-
                 android:text="快速注册"/>
             <TextView
-                android:id="@+id/tv_change"
+                android:id="@+id/tv_forget"
                 android:layout_below="@+id/bt_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -14,6 +14,9 @@ import com.lzy.okhttputils.OkHttpUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import okhttp3.Response;
 
@@ -40,19 +43,32 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         super.run();
-                        JSONObject json = new JSONObject();
                         try {
-                            json.put("telephont",telephone);
-                            json.put("password",password);
-                            json.put("iemi","iemi");
-                            Response response = OkHttpUtils.post(Constans.URL_REGISTER).upJson(json.toString()).execute();
-                            response.body();
-
-                        } catch (JSONException e) {
+                            URL url = new URL(Constans.URL_REGISTER +"?telephone="+telephone + "&" + "password=" + password);
+                            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                            httpURLConnection.setRequestMethod("GET");
+                            httpURLConnection.s
+                            httpURLConnection.getResponseCode();
+                            httpURLConnection.connect();
+                        } catch (MalformedURLException e) {
                             e.printStackTrace();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
+
+//                        JSONObject json = new JSONObject();
+//                        try {
+//                            json.put("telephone",telephone);
+//                            json.put("password",password);
+//                            json.put("iemi","iemi");
+//                            Response response = OkHttpUtils.post(Constans.URL_REGISTER).upJson(json.toString()).execute();
+//                            response.body();
+//
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        } catch (IOException e) {
+//                            e.printStackTrace();
+//                        }
                     }
                 }.start();
 

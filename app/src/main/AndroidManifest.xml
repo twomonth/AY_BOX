@@ -32,11 +32,13 @@
             android:label="@string/title_activity_left"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.LoginActivity"/>
 
         <service
             android:name=".serviece.LoginService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true">
+        </service>
     </application>
 
 </manifest>

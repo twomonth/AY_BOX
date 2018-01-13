@@ -3,48 +3,20 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     style="@style/AppTheme.NoActionBar">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="@color/colorBlue">
-        <ImageView
-            android:id="@+id/iv_home"
-            android:layout_width="50dp"
-            android:layout_height="35dp"
-            android:paddingLeft="15dp"
-            android:layout_centerVertical="true"
-            android:src="@mipmap/ic_main_home_p"/>
-        <TextView
-            android:id="@+id/tv_home_head"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:textSize="30dp"
-            android:textColor="@color/colorWhite"
-            android:text="主页"/>
-        <ImageView
-            android:id="@+id/iv_home_download"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="15dp"
-            android:background="@mipmap/download"/>
-
-    </RelativeLayout>
 
     <FrameLayout
         android:id="@+id/fl_home_content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8"
-        android:paddingTop="50dp">
+        android:layout_weight="9"
+        android:background="@mipmap/loginc">
     </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="@color/colorGray3">
 
         <LinearLayout
             android:id="@+id/ll_all"
@@ -53,16 +25,21 @@
             android:orientation="vertical"
             android:layout_weight="1">
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="3"
+                android:id="@+id/iv_down_all"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
                 android:layout_gravity="center_horizontal"
-                android:background="@mipmap/ic_launcher"/>
+                android:background="@mipmap/ic_down_all"/>
             <TextView
+                android:id="@+id/tv_down_all"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:layout_marginTop="2dp"
                 android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorGray"
+                android:textSize="12dp"
                 android:text="全部"/>
         </LinearLayout>
         <LinearLayout
@@ -72,16 +49,21 @@
             android:orientation="vertical"
             android:layout_weight="1">
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="3"
+                android:id="@+id/iv_down_hot"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
                 android:layout_gravity="center_horizontal"
-                android:background="@mipmap/ic_launcher"/>
+                android:background="@mipmap/ic_down_hot"/>
             <TextView
+                android:id="@+id/tv_down_hot"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:layout_marginTop="2dp"
                 android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorGray"
+                android:textSize="12dp"
                 android:text="热门"/>
         </LinearLayout>
         <LinearLayout
@@ -91,16 +73,21 @@
             android:orientation="vertical"
             android:layout_weight="1">
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="3"
+                android:id="@+id/iv_down_main"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
                 android:layout_gravity="center_horizontal"
-                android:background="@mipmap/ic_launcher"/>
+                android:background="@mipmap/ic_down_main"/>
             <TextView
+                android:id="@+id/tv_down_main"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:layout_marginTop="2dp"
                 android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorGray"
+                android:textSize="12dp"
                 android:text="主页"/>
         </LinearLayout>
         <LinearLayout
@@ -110,36 +97,46 @@
             android:orientation="vertical"
             android:layout_weight="1">
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="3"
+                android:id="@+id/iv_down_classify"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
                 android:layout_gravity="center_horizontal"
-                android:background="@mipmap/ic_launcher"/>
+                android:background="@mipmap/ic_down_classify"/>
             <TextView
+                android:id="@+id/tv_down_classify"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:layout_marginTop="2dp"
                 android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorGray"
+                android:textSize="12dp"
                 android:text="分类"/>
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/ll_search"
+            android:id="@+id/ll_user"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_weight="1">
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="3"
+                android:id="@+id/iv_down_user"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
                 android:layout_gravity="center_horizontal"
-                android:background="@mipmap/ic_launcher"/>
+                android:background="@mipmap/ic_down_user"/>
             <TextView
+                android:id="@+id/tv_down_user"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:layout_marginTop="2dp"
                 android:layout_gravity="center_horizontal"
-                android:text="搜索"/>
+                android:textColor="@color/colorGray"
+                android:textSize="12dp"
+                android:text="用户"/>
         </LinearLayout>
 
 

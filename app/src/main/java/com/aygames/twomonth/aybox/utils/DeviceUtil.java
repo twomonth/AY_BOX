@@ -21,7 +21,7 @@ public class DeviceUtil {
         String deviceId;
         TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         //安卓系统版本检测
-        if (Build.VERSION.SDK_INT >=Build.VERSION_CODES.N){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
             deviceId = Settings.Secure.getString(context.getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
         }else {
             deviceId = tm.getDeviceId();
