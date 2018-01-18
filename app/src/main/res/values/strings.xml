@@ -3,4 +3,6 @@
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_left">LeftActivity</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="drawer_open">OPEN</string>
+    <string name="drawer_close">CLOSE</string>
 </resources>
