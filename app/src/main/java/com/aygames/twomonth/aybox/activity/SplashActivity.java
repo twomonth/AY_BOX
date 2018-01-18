@@ -19,7 +19,8 @@ import com.aygames.twomonth.aybox.R;
 import com.aygames.twomonth.aybox.utils.APPUtil;
 import com.aygames.twomonth.aybox.utils.Constans;
 import com.bumptech.glide.Glide;
-import com.lzy.okhttputils.OkHttpUtils;
+import com.lzy.okgo.OkGo;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -95,10 +96,14 @@ public class SplashActivity extends Activity {
             @Override
             public void run() {
                 super.run();
+
                 Message mmessage=Message.obtain();
                 long startTime=System.currentTimeMillis();
+
+
                 try {
-                    Response response = OkHttpUtils.get(Constans.URL_UPDATE).execute();
+                    Response response  = OkGo.get(Constans.URL_UPDATE).execute();
+
                     JSONObject jsonObject = new JSONObject(response.body().string());
                     message = jsonObject.getString("message");
                     JSONObject jsonObject2 = jsonObject.getJSONObject("data");
@@ -143,7 +148,7 @@ public class SplashActivity extends Activity {
      * 跳转到HomeActivity
      */
     public void enterHome(){
-        Intent intent = new Intent(this,HomeActivity.class);
+        Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
         this.finish();
     }

@@ -2,4 +2,5 @@
     <string name="app_name">AY_BOX</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_left">LeftActivity</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>
