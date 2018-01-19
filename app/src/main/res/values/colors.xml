@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorGreen">#3ef107</color>
     <color name="colorOrange">#ffd23e</color>
+    <color name="colorOrange1">#ffa10a</color>
     <color name="colorBlue">#49D5CF</color>
     <color name="colorWhite">#fdfdfd</color>
     <color name="colorWhiteAndBlack">#ededed</color>
@@ -15,4 +16,6 @@
     <color name="colorGray">#969696</color>
     <color name="colorGray2">#dadada</color>
     <color name="colorGray3">#eaeaea</color>
+    <color name="green">#3ef107</color>
+    <color name="userback">#c2050505</color>
 </resources>

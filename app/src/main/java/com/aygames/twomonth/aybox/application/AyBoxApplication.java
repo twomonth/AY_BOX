@@ -1,7 +1,9 @@
 package com.aygames.twomonth.aybox.application;
 
 import android.app.Application;
+import android.content.Intent;
 
+import com.aygames.twomonth.aybox.service.AyboxService;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheEntity;
 import com.lzy.okgo.cache.CacheMode;
@@ -14,6 +16,7 @@ import com.lzy.okgo.model.HttpParams;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
+import cn.jpush.android.api.JPushInterface;
 import okhttp3.OkHttpClient;
 
 /**
@@ -27,6 +30,11 @@ public class AyBoxApplication extends Application {
         super.onCreate();
         //OkGo 初始化
         initOkGo();
+
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
+
+
     }
 
     private void initOkGo() {

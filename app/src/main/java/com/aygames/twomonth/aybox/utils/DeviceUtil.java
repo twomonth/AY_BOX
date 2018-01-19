@@ -56,4 +56,12 @@ public class DeviceUtil {
     public static String getBuildVersion() {
         return android.os.Build.VERSION.RELEASE;
     }
+
+    /**
+     * 获取设备手机号码
+     */
+    public static String getUser_tel(Context context){
+        TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        return tm.getLine1Number();
+    }
 }

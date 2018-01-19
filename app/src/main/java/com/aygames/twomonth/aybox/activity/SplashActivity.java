@@ -105,7 +105,7 @@ public class SplashActivity extends Activity {
 
 
                 try {
-                    Response response  = OkGo.get(Constans.URL_UPDATE).execute();
+                    Response response  = OkGo.get("http://www.syyouxi.com/SDKconfigAPI/AppisUpdate").execute();
 
                     JSONObject jsonObject = new JSONObject(response.body().string());
                     message = jsonObject.getString("message");
