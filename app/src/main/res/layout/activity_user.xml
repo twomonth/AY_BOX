@@ -17,7 +17,7 @@
             android:layout_marginLeft="10dp"
             android:background="@mipmap/title_back"/>
         <TextView
-            android:id="@+id/tv_telephone"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -75,7 +75,7 @@
                 android:textColor="@color/colorWhite"
                 android:text="**********"/>
             <TextView
-
+                android:id="@+id/tv_telephone"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_marginTop="5dp"
