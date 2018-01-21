@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="home"/>
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/colorGray">
 
-    </android.support.v7.widget.RecyclerView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:id="@+id/rl_tuijian"
+            android:layout_width="match_parent"
+            android:padding="8dp"
+            android:layout_height="120dp">
+            <TextView
+                android:id="@+id/tv_tuijian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="推荐"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/tv_tuijian"
+                android:layout_alignLeft="@+id/tv_tuijian"
+                android:layout_alignRight="@+id/tv_tuijian"
+                android:background="@color/colorAccent"/>
+        </RelativeLayout>
+
+    </ScrollView>
+
 
 </RelativeLayout>

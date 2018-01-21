@@ -167,13 +167,16 @@
         <activity android:name=".activity.ChangeActivity" />
         <activity
             android:name=".activityfb.GiftActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".activityfb.WaiterActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".activityfb.RebateActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
+        <activity
+            android:name=".activityfb.ShareActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>

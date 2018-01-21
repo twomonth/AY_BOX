@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.aygames.twomonth.aybox.activityfb.GiftActivity">
+    tools:context="com.aygames.twomonth.aybox.activityfb.RebateActivity">
     <RelativeLayout
         android:id="@+id/ll_rebater_head"
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             android:layout_centerInParent="true"
             android:textColor="@color/colorWhite"
             android:textSize="30dp"
-            android:text="客服"/>
+            android:text="返利"/>
     </RelativeLayout>
     <ImageView
         android:layout_width="match_parent"

@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.aygames.twomonth.aybox.activityfb.WaiterActivity">
+    tools:context="com.aygames.twomonth.aybox.activityfb.ShareActivity">
     <RelativeLayout
-        android:id="@+id/ll_waiter_head"
+        android:id="@+id/ll_share_head"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@color/colorOrange1">
         <ImageView
-            android:id="@+id/iv_waiter_back"
+            android:id="@+id/iv_share_back"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_centerVertical="true"
@@ -22,12 +22,12 @@
             android:layout_centerInParent="true"
             android:textColor="@color/colorWhite"
             android:textSize="30dp"
-            android:text="客服"/>
+            android:text="分享游戏"/>
     </RelativeLayout>
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ll_waiter_head"
+        android:layout_below="@+id/ll_share_head"
         android:background="@mipmap/back"/>
 
 </RelativeLayout>
