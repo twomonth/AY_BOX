@@ -177,7 +177,9 @@
         <activity
             android:name=".activityfb.ShareActivity"
             android:exported="true" />
-        <activity android:name=".activity.GameActivity"></activity>
+        <activity android:name=".activity.GameActivity" />
+        <activity android:name=".activity.TestActivity" />
+        <activity android:name=".activity.DownloadingActivity"></activity>
     </application>
 
 </manifest>

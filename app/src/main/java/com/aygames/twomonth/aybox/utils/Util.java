@@ -1,6 +1,8 @@
 package com.aygames.twomonth.aybox.utils;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -53,6 +55,20 @@ public class Util {
 			else {    
 				return "CH1149060018297";        
 				}    
+	}
+
+	/**
+	 * 时间工具类
+	 * @param cc_time
+	 * @return
+	 */
+	public static String getStrTime(String cc_time) {
+		String re_StrTime = null;
+		SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日HH:mm");
+// 例如：cc_time=1291778220
+		long lcc_time = Long.valueOf(cc_time);
+		re_StrTime = sdf.format(new Date(lcc_time * 1000L));
+		return re_StrTime;
 	}
 
 }

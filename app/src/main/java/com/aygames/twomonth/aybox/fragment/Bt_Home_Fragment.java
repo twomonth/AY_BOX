@@ -14,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ScrollView;
+import android.widget.Scroller;
 import android.widget.Toast;
 
 import com.aygames.twomonth.aybox.R;
@@ -21,6 +23,8 @@ import com.aygames.twomonth.aybox.activity.GameActivity;
 import com.aygames.twomonth.aybox.adapter.GameAllAdapter;
 import com.aygames.twomonth.aybox.adapter.SmallAdapter;
 import com.aygames.twomonth.aybox.bean.Game;
+import com.aygames.twomonth.aybox.utils.DialogUtil;
+import com.aygames.twomonth.aybox.utils.FullyLinearLayoutManager;
 import com.aygames.twomonth.aybox.utils.Logger;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
@@ -53,26 +57,15 @@ public class Bt_Home_Fragment extends Fragment {
     private ArrayList<Game> arrayListBanner;
     private ArrayList<Game> arrayListTuijian;
     private ArrayList<Game> arrayListGameAll;
-
     private GameAllAdapter gameAllAdapter;
     private SmallAdapter smipleAdapter;
     private View view ;
-//
-//    private Handler handler = new Handler(){
-//        @Override
-//        public void handleMessage(Message msg) {
-//            super.handleMessage(msg);
-//
-//
-//        }
-//    };
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_bt_home, null);
         initView();
         initData();
-
-
 
         return view;
     }
@@ -82,6 +75,7 @@ public class Bt_Home_Fragment extends Fragment {
         recyclerView = view.findViewById(R.id.recycle);
         recycle_gameall = view.findViewById(R.id.recycle_gameall);
         convenientBanner = view.findViewById(R.id.convenientBanner);
+        DialogUtil.showDialog(getContext(),"正在请求数据");
     }
     private void initData() {
         //读取网络数据游戏列表
@@ -150,15 +144,18 @@ public class Bt_Home_Fragment extends Fragment {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                         smipleAdapter = new SmallAdapter(getContext(),  arrayListTuijian);
+                        smipleAdapter = new SmallAdapter(getContext(),  arrayListTuijian);
                         recyclerView.setAdapter(smipleAdapter);
                         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
                         recyclerView.setLayoutManager(linearLayoutManager);
 
                         gameAllAdapter = new GameAllAdapter(getContext(),arrayListGameAll);
                         recycle_gameall.setAdapter(gameAllAdapter);
-                        LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
-                        recycle_gameall.setLayoutManager(linearLayoutManager1);
+//                        LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+//                        recycle_gameall.setLayoutManager(linearLayoutManager1);
+                        FullyLinearLayoutManager linearLayoutManager3 = new FullyLinearLayoutManager(getContext());
+                        recycle_gameall.setNestedScrollingEnabled(false);
+                        recycle_gameall.setLayoutManager(linearLayoutManager3);
                         recycle_gameall.setItemAnimator(new DefaultItemAnimator());
 
                         //轮播图
@@ -179,17 +176,13 @@ public class Bt_Home_Fragment extends Fragment {
                         convenientBanner.startTurning(2000);
                         convenientBanner.setManualPageable(true);//设置不能手动影响  默认是手指触摸 轮播图不能翻页
                         convenientBanner.setPointViewVisible(true);
-
-
-
-
-
                         smipleAdapter.setOnItemClickListener(new SmallAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
                                 Toast.makeText(getContext(),arrayListTuijian.get(position).app_name_cn,Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getContext(), GameActivity.class);
                                 intent.putExtra("gid",arrayListTuijian.get(position).gid);
+                                intent.putExtra("type",1);
                                 startActivity(intent);
                             }
 
@@ -204,6 +197,7 @@ public class Bt_Home_Fragment extends Fragment {
                                 Toast.makeText(getContext(),arrayListGameAll.get(position).app_name_cn,Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getContext(), GameActivity.class);
                                 intent.putExtra("gid",arrayListGameAll.get(position).gid);
+                                intent.putExtra("type",1);
                                 startActivity(intent);
                             }
 
@@ -218,14 +212,15 @@ public class Bt_Home_Fragment extends Fragment {
                                 Toast.makeText(getContext(),arrayListBanner.get(position).app_name_cn,Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getContext(), GameActivity.class);
                                 intent.putExtra("gid",arrayListBanner.get(position).gid);
+                                intent.putExtra("type",1);
                                 startActivity(intent);
                             }
                         });
-
-
-
-
-
+                        try {
+                            DialogUtil.dismissDialog();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
             }
@@ -246,8 +241,12 @@ public class Bt_Home_Fragment extends Fragment {
         @Override
         public void UpdateUI(Context context, int position, String data) {
 //            imageView.setImageResource(R.mipmap.background);
-            Logger.msg("图片网址：：：：：：："+ data);
+//            Logger.msg("图片网址：：：：：：："+ data);
             Glide.with(context).load(data).error(R.mipmap.background).into(imageView);
         }
     }
+
 }
+
+
+

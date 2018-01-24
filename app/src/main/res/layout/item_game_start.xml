@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="190dp" android:layout_height="120dp"
+    android:padding="5dp"
+    android:layout_marginLeft="3dp"
+    android:layout_marginRight="3dp"
+    android:layout_marginTop="15dp"
+    android:background="@drawable/rl_back">
+    <ImageView
+        android:id="@+id/iv_icon_start"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentLeft="true" />
+    <TextView
+        android:id="@+id/tv_name_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_icon_start"
+        android:layout_toRightOf="@id/iv_icon_start"
+        android:layout_alignTop="@+id/iv_icon_start"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:text="游戏名称"/>
+    <TextView
+        android:id="@+id/tv_type_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tv_name_start"
+        android:layout_alignLeft="@+id/tv_name_start"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/tv_name_start"
+        android:text="leixing"/>
+    <TextView
+        android:id="@+id/tv_service_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/tv_type_start"
+        android:layout_alignLeft="@+id/tv_name_start"
+        android:textColor="@color/green"
+        android:textStyle="bold"
+        android:text="qufu"/>
+    <TextView
+        android:id="@+id/tv_time_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_below="@+id/iv_icon_start"
+        android:layout_marginTop="5dp"
+
+        android:background="@drawable/btn_login"
+        android:textColor="@color/colorWhite"
+        android:text="开服时间"/>
+
+</RelativeLayout>

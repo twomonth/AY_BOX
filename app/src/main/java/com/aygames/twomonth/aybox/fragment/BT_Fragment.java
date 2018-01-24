@@ -1,6 +1,8 @@
 package com.aygames.twomonth.aybox.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -39,6 +41,7 @@ public class BT_Fragment extends Fragment {
     private void initView() {
         vp_bt = view.findViewById(R.id.vp_bt);
         tab_bt = view.findViewById(R.id.tab_bt);
+        tab_bt.setBackgroundColor(Color.parseColor("#fcc137"));
     }
 
     private void initData() {
