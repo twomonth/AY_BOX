@@ -23,6 +23,12 @@ android {
                 JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
         ]
 
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
+
     }
     buildTypes {
         release {
@@ -52,5 +58,7 @@ dependencies {
     compile 'cn.jiguang.sdk:jcore:1.1.9'
     //轮播图框架
     compile 'com.bigkoo:convenientbanner:2.0.5'
+
+    compile 'com.jakewharton:butterknife:7.0.1'
     testCompile 'junit:junit:4.12'
 }

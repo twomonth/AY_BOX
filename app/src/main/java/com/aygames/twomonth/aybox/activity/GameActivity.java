@@ -1,5 +1,6 @@
 package com.aygames.twomonth.aybox.activity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Environment;
@@ -15,11 +16,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.aygames.twomonth.aybox.Manifest;
 import com.aygames.twomonth.aybox.R;
+import com.aygames.twomonth.aybox.adapter.DownloadAdapter;
 import com.aygames.twomonth.aybox.adapter.PictureAdapter;
 import com.aygames.twomonth.aybox.bean.ApkModel;
+import com.aygames.twomonth.aybox.bean.Game;
 import com.aygames.twomonth.aybox.listener.LogDownloadListener;
 import com.aygames.twomonth.aybox.utils.Logger;
 import com.bumptech.glide.Glide;
@@ -50,13 +54,12 @@ public class GameActivity extends AppCompatActivity {
     private ImageView iv_game_back, iv_game_icon;
     private Button bt_game_download;
     private String GID, name, icon, size, introduced, url;
-
+    private PictureAdapter pictureAdapter;
     private int type;
     private TextView tv_game_yxjj, tv_game_name, tv_game_size, tv_game_type;
     private RecyclerView recycle_game_yxjt;
     private JSONArray jsonArray_type, jsonArray_picture, jsonArray_welfare;
     private JSONObject jsonObject;
-    private ListView lv_welfare;
     private ArrayList list_type;
     private ArrayList list_welfare;
     private ArrayList list_picture;
@@ -85,19 +88,17 @@ public class GameActivity extends AppCompatActivity {
                 OkDownload.request(apk.url, request)//
                         .fileName(apk.name+".apk")
 //                        .priority(apk.priority)//
-//                        .extra1(apk)//
+                        .extra1(apk)//
                         .save()//
                         .register(new LogDownloadListener() {
                         })//
                         .start();
 
-//                Intent intent = new Intent(GameActivity.this,TestActivity.class);
-//                intent.putExtra("url",url);
-//                startActivity(intent);
-
-
+                Intent intent = new Intent(GameActivity.this,DownloadingActivity.class);
+                startActivity(intent);
             }
         });
+
 
 
     }
@@ -111,8 +112,6 @@ public class GameActivity extends AppCompatActivity {
         tv_game_name = findViewById(R.id.tv_game_name);
         tv_game_size = findViewById(R.id.tv_game_size);
         tv_game_type = findViewById(R.id.tv_game_type);
-
-//        lv_welfare = findViewById(R.id.lv_welfare);
         tv_game_welfare = findViewById(R.id.tv_game_welfare);
     }
 
@@ -125,8 +124,6 @@ public class GameActivity extends AppCompatActivity {
         //从数据库中护肤数据
         List<Progress> progressList = com.lzy.okgo.db.DownloadManager.getInstance().getAll();
         OkDownload.restore(progressList);
-
-
 
         GID = getIntent().getStringExtra("gid");
         type = getIntent().getIntExtra("type", 0);
@@ -191,12 +188,26 @@ public class GameActivity extends AppCompatActivity {
                         tv_game_name.setText(name);
                         tv_game_size.setText(size);
                         tv_game_yxjj.setText("    " + introduced);
-                        recycle_game_yxjt.setAdapter(new PictureAdapter(GameActivity.this, list_picture));
+                        pictureAdapter = new PictureAdapter(GameActivity.this, list_picture);
+                        recycle_game_yxjt.setAdapter(pictureAdapter);
                         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(GameActivity.this, LinearLayoutManager.HORIZONTAL, false);
                         recycle_game_yxjt.setLayoutManager(linearLayoutManager);
 
                         tv_game_type.setText(stringBuffer.toString());
                         tv_game_welfare.setText(stringBuffer_welfare.toString());
+
+                        pictureAdapter.setOnItemClickListener(new PictureAdapter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                Toast.makeText(getApplication(),"111",Toast.LENGTH_SHORT).show();
+
+                            }
+
+                            @Override
+                            public void onItemLongClick(View view, int position) {
+
+                            }
+                        });
                     }
                 });
             }
