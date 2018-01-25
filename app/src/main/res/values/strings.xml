@@ -5,4 +5,40 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="drawer_open">OPEN</string>
     <string name="drawer_close">CLOSE</string>
+
+
+    <string-array name="type">
+        <item>不限</item>
+        <item>休闲</item>
+        <item>竞技</item>
+        <item>动作</item>
+        <item>射击</item>
+        <item>卡牌</item>
+        <item>角色</item>
+        <item>策略</item>
+        <item>回合</item>
+        <item>即时</item>
+        <item>塔防</item>
+        <item>挂机</item>
+        <item>传奇</item>
+        <item>Q版</item>
+        <item>闯关</item>
+    </string-array>
+
+    <string-array name="ticai">
+        <item>不限</item>
+        <item>3D</item>
+        <item>三国</item>
+        <item>西游</item>
+        <item>仙侠</item>
+        <item>武侠</item>
+        <item>玄幻</item>
+        <item>魔幻</item>
+        <item>战争</item>
+        <item>海战</item>
+        <item>机甲</item>
+        <item>动漫</item>
+        <item>国战</item>
+        <item>探险</item>
+    </string-array>
 </resources>

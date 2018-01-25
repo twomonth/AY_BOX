@@ -44,10 +44,21 @@ public class GameStartAdapter extends RecyclerView.Adapter<GameStartAdapter.MyVi
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.item_game_start,parent,false);
+        if (viewType == 2){
+            View view = mInflater.inflate(R.layout.item_game_start,parent,false);
+            MyViewHolder viewHolder = new MyViewHolder(view);
+            return viewHolder;
+        }else {
+            View view = mInflater.inflate(R.layout.item_game_start_time,parent,false);
+            MyViewHolder viewHolder = new MyViewHolder(view);
+            return viewHolder;
+        }
 
-        MyViewHolder viewHolder = new MyViewHolder(view);
-        return viewHolder;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return list.get(position).type;
     }
 
     @Override
@@ -59,7 +70,9 @@ public class GameStartAdapter extends RecyclerView.Adapter<GameStartAdapter.MyVi
             holder.tv_type.setText(list.get(position).app_type);
         }
         holder.tv_service.setText(list.get(position).service);
+
         holder.tv_time.setText(Util.getStrTime(list.get(position).time));
+
         Glide.with(context)
                 .load(list.get(position).ico_url)
                 .error(R.mipmap.logo)
@@ -90,7 +103,6 @@ public class GameStartAdapter extends RecyclerView.Adapter<GameStartAdapter.MyVi
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder{
-
         ImageView iv_icon;
         TextView tv_name;
         TextView tv_type;

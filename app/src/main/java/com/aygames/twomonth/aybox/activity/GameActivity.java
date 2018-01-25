@@ -1,40 +1,29 @@
 package com.aygames.twomonth.aybox.activity;
 
-import android.app.Dialog;
+
 import android.content.Intent;
-import android.content.pm.PackageManager;
+
 import android.os.Environment;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.aygames.twomonth.aybox.Manifest;
 import com.aygames.twomonth.aybox.R;
-import com.aygames.twomonth.aybox.adapter.DownloadAdapter;
 import com.aygames.twomonth.aybox.adapter.PictureAdapter;
 import com.aygames.twomonth.aybox.bean.ApkModel;
-import com.aygames.twomonth.aybox.bean.Game;
 import com.aygames.twomonth.aybox.listener.LogDownloadListener;
 import com.aygames.twomonth.aybox.utils.Logger;
 import com.bumptech.glide.Glide;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Progress;
-
 import com.lzy.okgo.request.GetRequest;
 import com.lzy.okserver.OkDownload;
-import com.lzy.okserver.download.DownloadListener;
-
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -160,8 +149,6 @@ public class GameActivity extends AppCompatActivity {
                     for (int i = 0; i < list_welfare.size(); i++) {
                         stringBuffer_welfare.append(list_welfare.get(i) + "\n");
                     }
-
-
                     for (int i = 0; i < list_type.size(); i++) {
                         stringBuffer.append("*" + list_type.get(i));
                     }

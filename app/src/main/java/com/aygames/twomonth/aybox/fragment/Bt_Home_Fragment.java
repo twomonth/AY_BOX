@@ -66,7 +66,12 @@ public class Bt_Home_Fragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_bt_home, null);
         initView();
         initData();
-
+        recycle_gameall.setOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });
         return view;
     }
 

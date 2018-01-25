@@ -93,6 +93,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        iv_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(MainActivity.this,DownloadingActivity.class);
+                startActivity(intent1);
+            }
+        });
+
     }
 
     private void initData() {

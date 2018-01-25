@@ -1,85 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.aygames.twomonth.aybox.activity.DownloadingActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.aygames.twomonth.aybox.activity.DownloadingActivity">
 
-
-    <RelativeLayout
-        android:id="@+id/ll_download_head"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorOrange1">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/iv_download_back"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:background="@mipmap/title_back" />
+        <RelativeLayout
+            android:id="@+id/ll_download_head"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorOrange1">
+
+            <ImageView
+                android:id="@+id/iv_download_back"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@mipmap/title_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="下载管理器"
+                android:textColor="@color/colorWhite"
+                android:textSize="15dp" />
+
+            <ImageView
+                android:id="@+id/iv_download_download"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@mipmap/ic_launcher_round" />
+        </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="下载管理器"
-            android:textColor="@color/colorWhite"
-            android:textSize="15dp" />
-        <ImageView
-            android:id="@+id/iv_download_download"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:layout_alignParentRight="true"
-            android:background="@mipmap/ic_launcher_round"/>
-    </RelativeLayout>
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="正在下载"
+            android:textColor="@color/colorOrange1" />
 
-
+        <View
+            android:layout_width="55dp"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/colorAccent" />
 
 
         <LinearLayout
             android:id="@+id/ll_download_control"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <Button
                 android:id="@+id/removeAll"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="删除所有"/>
+                android:text="删除所有" />
 
             <Button
                 android:id="@+id/pauseAll"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="暂停所有"/>
+                android:text="暂停所有" />
 
             <Button
                 android:id="@+id/startAll"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="开始所有"/>
+                android:text="开始所有" />
         </LinearLayout>
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleView_download"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycleView_download"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="150dp"
+        android:background="@color/colorWhiteAndBlack"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="已完成"
+            android:textColor="@color/colorOrange1" />
 
+        <View
+            android:layout_width="55dp"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/colorAccent" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycle_downloaded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+        </android.support.v7.widget.RecyclerView>
 
-
-</LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

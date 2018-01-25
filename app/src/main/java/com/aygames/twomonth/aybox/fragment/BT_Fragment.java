@@ -2,7 +2,6 @@ package com.aygames.twomonth.aybox.fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.provider.CalendarContract;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -13,7 +12,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableLayout;
 
 import com.aygames.twomonth.aybox.R;
 
@@ -48,9 +46,9 @@ public class BT_Fragment extends Fragment {
         items = new ArrayList<>();
         items.add(new Pair<String, Fragment>("首页", new Bt_Home_Fragment()));
         items.add(new Pair<String, Fragment>("开服", new Bt_Start_Fragment()));
-        items.add(new Pair<String, Fragment>("新闻", new Bt_News_Fragment()));
-        items.add(new Pair<String, Fragment>("预约", new Bt_Order_Fragment()));
+        items.add(new Pair<String, Fragment>("中心", new Bt_Center_Fragment()));
         items.add(new Pair<String, Fragment>("礼包", new Bt_Gift_Fragment()));
+        items.add(new Pair<String, Fragment>("新闻", new Bt_News_Fragment()));
         vp_bt.setAdapter(new MainAdapter(getChildFragmentManager()));
         tab_bt.setupWithViewPager(vp_bt);
     }

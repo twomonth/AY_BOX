@@ -32,11 +32,12 @@ import okhttp3.Response;
 
 public class Bt_Start_Fragment extends Fragment {
 
-    private View view ;
+    private View view;
     private JSONObject jsonObject_game;
     private ArrayList<Game> gameList;
 
-    private RecyclerView recyclerView ;
+    private RecyclerView recyclerView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_bt_start, null);
@@ -51,7 +52,7 @@ public class Bt_Start_Fragment extends Fragment {
 
     private void initData() {
 
-        new Thread(){
+        new Thread() {
             @Override
             public void run() {
                 try {
@@ -61,14 +62,43 @@ public class Bt_Start_Fragment extends Fragment {
                     gameList = new ArrayList();
                     for (int i = 0; i < jsonArray.length(); i++) {
                         jsonObject_game = jsonArray.getJSONObject(i);
-                        Game game = new Game(jsonObject_game.getString("ico_url")
-                                ,jsonObject_game.getString("app_name")
-                                ,jsonObject_game.getString("gid")
-                                ,jsonObject_game.getString("time")
-                                ,jsonObject_game.getString("server")
-                                ,jsonObject_game.getString("app_type")
-                                ,false);
-                        gameList.add(game);
+                        if (i==0 ){
+                            Game game = new Game("*","*","*",jsonObject_game.getString("time"),"*","*",0);
+                            gameList.add(game);
+                            game = new Game(jsonObject_game.getString("ico_url")
+                                    , jsonObject_game.getString("app_name")
+                                    , jsonObject_game.getString("gid")
+                                    , jsonObject_game.getString("time")
+                                    , jsonObject_game.getString("server")
+                                    , jsonObject_game.getString("app_type")
+                                    , 2);
+                            gameList.add(game);
+                        }else if (!jsonObject_game.getString("time").equals(jsonArray.getJSONObject(i-1).getString("time"))){
+                            Game game = new Game("*","*","*",jsonObject_game.getString("time"),"*","*",0);
+                            gameList.add(game);
+                            game = new Game(jsonObject_game.getString("ico_url")
+                                    , jsonObject_game.getString("app_name")
+                                    , jsonObject_game.getString("gid")
+                                    , jsonObject_game.getString("time")
+                                    , jsonObject_game.getString("server")
+                                    , jsonObject_game.getString("app_type")
+                                    , 2);
+                            gameList.add(game);
+                        }
+                        else {
+                            Game game = new Game(jsonObject_game.getString("ico_url")
+                                    , jsonObject_game.getString("app_name")
+                                    , jsonObject_game.getString("gid")
+                                    , jsonObject_game.getString("time")
+                                    , jsonObject_game.getString("server")
+                                    , jsonObject_game.getString("app_type")
+                                    , 2);
+                            gameList.add(game);
+                        }
+
+
+
+
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -78,16 +108,32 @@ public class Bt_Start_Fragment extends Fragment {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        GameStartAdapter adapter = new GameStartAdapter(getContext(),gameList);
-                        recyclerView.setAdapter(adapter);
-                        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
+
+                        final GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+                        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                            @Override
+                            public int getSpanSize(int position) {
+                                int type = gameList.get(position).type;
+                                if (type == 0){
+                                    return 2;
+                                }else {
+                                    return 1;
+                                }
+                            }
+                        });
                         recyclerView.setLayoutManager(gridLayoutManager);
+                        GameStartAdapter adapter = new GameStartAdapter(getContext(), gameList);
+                        recyclerView.setAdapter(adapter);
                         adapter.setOnItemClickListener(new GameStartAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-                                Intent intent = new Intent(getContext(), GameActivity.class);
-                                intent.putExtra("gid",gameList.get(position).gid);
-                                startActivity(intent);
+                                if (gameList.get(position).type == 0){
+
+                                }else {
+                                    Intent intent = new Intent(getContext(), GameActivity.class);
+                                    intent.putExtra("gid", gameList.get(position).gid);
+                                    startActivity(intent);
+                                }
                             }
 
                             @Override

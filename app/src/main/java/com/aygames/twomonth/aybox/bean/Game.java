@@ -12,6 +12,8 @@ public class Game implements Serializable {
     public String service;
     public String time;
 
+    public int type;
+
     public Game (String ico_url,String app_name_cn,String gid){
         this.ico_url = ico_url;
         this.app_name_cn = app_name_cn;
@@ -42,5 +44,14 @@ public class Game implements Serializable {
         this.time = time;
         this.service = service;
         this.app_type = app_type;
+    }
+    public Game(String ico_url,String app_name_cn,String gid, String time, String service ,String app_type,int type){
+        this.ico_url = ico_url;
+        this.app_name_cn = app_name_cn;
+        this.gid = gid;
+        this.time = time;
+        this.service = service;
+        this.app_type = app_type;
+        this.type = type;
     }
 }
