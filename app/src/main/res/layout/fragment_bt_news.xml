@@ -1,9 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="news"/>
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/rl_fragment_news">
+    <ListView
+        android:id="@+id/lv_news"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
+    </ListView>
+    <LinearLayout
+        android:id="@+id/ll_news_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:layout_alignParentBottom="true"
+        android:weightSum="4">
+        <Button
+            android:id="@+id/bt_huodong"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_login"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="游戏活动"/>
+        <Button
+            android:id="@+id/bt_gonglve"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_login"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="游戏攻略"/>
+        <Button
+            android:id="@+id/bt_gonggao"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_login"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="游戏公告"/>
+        <Button
+            android:id="@+id/bt_pt_gonggao"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_login"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="平台公告"/>
+
+    </LinearLayout>
 </RelativeLayout>

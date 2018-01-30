@@ -43,7 +43,7 @@
         android:layout_marginTop="2dp"
         android:layout_below="@+id/tv_type_start"
         android:layout_alignLeft="@+id/tv_name_start"
-        android:textColor="@color/green"
+        android:textColor="@color/colorBlue2"
         android:textStyle="bold"
         android:text="qufu"
         android:visibility="gone"/>

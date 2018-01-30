@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.aygames.twomonth.aybox.activity.NewsActivity">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/rl_title_news"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/colorOrange1">
+
+
+                <ImageView
+                    android:id="@+id/iv_back_news"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@mipmap/title_back" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="新闻详情"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="15dp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_news_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_title_news"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="biaoti"
+                android:textColor="@color/colorBlack"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tv_times"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_news_title"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="40dp"
+                android:text="时间："/>
+            <TextView
+                android:id="@+id/tv_news_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv_times"
+                android:layout_toRightOf="@+id/tv_times"
+                android:layout_marginLeft="5dp"
+                android:text="110"/>
+            <TextView
+                android:id="@+id/tv_liulan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv_times"
+                android:layout_toRightOf="@+id/tv_news_time"
+                android:layout_marginLeft="10dp"
+                android:text="浏览次数："/>
+            <TextView
+                android:id="@+id/tv_count_news"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv_times"
+                android:layout_toRightOf="@+id/tv_liulan"
+                android:layout_marginLeft="10dp"/>
+            <TextView
+                android:id="@+id/tv_context"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_times"
+                android:padding="10dp"/>
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

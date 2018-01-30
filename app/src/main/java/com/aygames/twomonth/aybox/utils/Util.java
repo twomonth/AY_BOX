@@ -64,11 +64,27 @@ public class Util {
 	 */
 	public static String getStrTime(String cc_time) {
 		String re_StrTime = null;
-		SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日HH:mm");
-// 例如：cc_time=1291778220
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 		long lcc_time = Long.valueOf(cc_time);
 		re_StrTime = sdf.format(new Date(lcc_time * 1000L));
 		return re_StrTime;
+	}
+
+	public static String getStrTimeString(String cc_time) {
+		String re_StrTime = null;
+		SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日HH:mm");
+		long lcc_time = Long.valueOf(cc_time);
+		re_StrTime = sdf.format(new Date(lcc_time * 1000L));
+		return re_StrTime;
+	}
+
+	public static int getStrDay(String cc_time){
+		String re_StrTime = null;
+		SimpleDateFormat sdf = new SimpleDateFormat("dd");
+		long lcc_time = Long.valueOf(cc_time);
+		re_StrTime = sdf.format(new Date(lcc_time * 1000L));
+		int timeDay = Integer.parseInt(re_StrTime);
+		return timeDay;
 	}
 
 }

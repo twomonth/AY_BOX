@@ -58,7 +58,7 @@ public class Bt_Start_Fragment extends Fragment {
                 try {
                     Response response = OkGo.get("http://sdk.aooyou.com/index.php/DataGames/getKaifu").execute();
                     JSONArray jsonArray = new JSONArray(response.body().string());
-                    Logger.msg(jsonArray.toString());
+                    Logger.msg("testt"+jsonArray.toString());
                     gameList = new ArrayList();
                     for (int i = 0; i < jsonArray.length(); i++) {
                         jsonObject_game = jsonArray.getJSONObject(i);
@@ -95,10 +95,6 @@ public class Bt_Start_Fragment extends Fragment {
                                     , 2);
                             gameList.add(game);
                         }
-
-
-
-
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

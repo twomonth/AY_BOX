@@ -1,6 +1,7 @@
 package com.aygames.twomonth.aybox.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,11 +11,13 @@ import android.widget.TextView;
 
 import com.aygames.twomonth.aybox.R;
 import com.aygames.twomonth.aybox.bean.Game;
+import com.aygames.twomonth.aybox.utils.Logger;
 import com.aygames.twomonth.aybox.utils.Util;
 import com.bumptech.glide.Glide;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by Administrator on 2018/1/21.
@@ -63,6 +66,11 @@ public class GameStartAdapter extends RecyclerView.Adapter<GameStartAdapter.MyVi
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
+        //内部时间
+        String time = list.get(position).time;
+        //当前时间 day
+        int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+//        Logger.msg("天天："+day+"vvv"+Util.getStrDay(time));
         holder.tv_name.setText(list.get(position).app_name_cn);
         if (list.get(position).app_type.equals(null)){
             holder.tv_type.setText("**");
@@ -71,7 +79,15 @@ public class GameStartAdapter extends RecyclerView.Adapter<GameStartAdapter.MyVi
         }
         holder.tv_service.setText(list.get(position).service);
 
-        holder.tv_time.setText(Util.getStrTime(list.get(position).time));
+
+        if (day == Util.getStrDay(time)){
+            holder.tv_time.setTextColor(Color.parseColor("#07ae76"));
+            holder.tv_time.setText(Util.getStrTime(time));
+        }else {
+            holder.tv_time.setTextColor(Color.parseColor("#ffa10a"));
+            holder.tv_time.setText(Util.getStrTimeString(time));
+        }
+//        holder.tv_time.setText(Util.getStrTime(time));
 
         Glide.with(context)
                 .load(list.get(position).ico_url)

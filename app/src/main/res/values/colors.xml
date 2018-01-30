@@ -7,6 +7,7 @@
     <color name="colorOrange">#fcc137</color>
     <color name="colorOrange1">#ffa10a</color>
     <color name="colorBlue">#49D5CF</color>
+    <color name="colorBlue2">#07ae76</color>
     <color name="colorWhite">#fdfdfd</color>
     <color name="colorWhiteAndBlack">#ededed</color>
     <color name="colorBlackBack">#00ffffff</color>
@@ -17,5 +18,6 @@
     <color name="colorGray2">#dadada</color>
     <color name="colorGray3">#eaeaea</color>
     <color name="green">#41ff07</color>
+    <color name="green2">#2cbe00</color>
     <color name="userback">#c2050505</color>
 </resources>
