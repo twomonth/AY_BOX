@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:padding="30dp">
+
+    <TextView
+        android:id="@+id/tv_giftcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rl_back"
+        android:textColor="@color/colorOrange1"
+        android:text="74110"/>
+    <Button
+        android:id="@+id/bt_copy"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@+id/tv_giftcode"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_login"
+        android:text="点击复制"/>
+
+</RelativeLayout>

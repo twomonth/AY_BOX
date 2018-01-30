@@ -80,8 +80,8 @@
                 android:layout_alignBottom="@+id/tv_times"
                 android:layout_toRightOf="@+id/tv_liulan"
                 android:layout_marginLeft="10dp"/>
-            <TextView
-                android:id="@+id/tv_context"
+            <WebView
+                android:id="@+id/web_context"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_times"

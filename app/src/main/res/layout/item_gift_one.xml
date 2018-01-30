@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_margin="3dp"
+    android:background="@drawable/rl_back">
+
+
+
+    <TextView
+        android:id="@+id/tv_giftname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"
+        android:text="libaomingcheng"/>
+    <TextView
+        android:id="@+id/tv_giftinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_below="@+id/tv_giftname"
+        android:text="libaoneirong"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:layout_alignBottom="@+id/tv_giftname"
+        android:layout_alignParentRight="true"
+        android:paddingRight="5dp"
+        android:layout_marginRight="15dp"
+        android:textColor="@color/colorOrange1"
+        android:text="点击领取"/>
+
+</RelativeLayout>

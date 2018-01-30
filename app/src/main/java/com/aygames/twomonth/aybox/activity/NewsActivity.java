@@ -3,6 +3,7 @@ package com.aygames.twomonth.aybox.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,7 +13,6 @@ import com.aygames.twomonth.aybox.utils.Logger;
 import com.aygames.twomonth.aybox.utils.Util;
 import com.lzy.okgo.OkGo;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -23,7 +23,8 @@ import okhttp3.Response;
 
 public class NewsActivity extends AppCompatActivity {
 
-    private TextView tv_context,tv_count_news,tv_news_time,tv_news_title;
+    private TextView tv_count_news,tv_news_time,tv_news_title;
+    private WebView web_context;
     private ImageView iv_back;
     private String nid;
     private String title,time,context,count;
@@ -64,7 +65,7 @@ public class NewsActivity extends AppCompatActivity {
                             tv_news_title.setText(title);
                             tv_news_time.setText(Util.getStrTimeString(time));
                             tv_count_news.setText(count);
-                            tv_context.setText(context);
+//                            tv_context.setText(context);
                         }
                     });
                 } catch (IOException e) {
@@ -77,7 +78,7 @@ public class NewsActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        tv_context = findViewById(R.id.tv_context);
+        web_context = findViewById(R.id.web_context);
         tv_count_news = findViewById(R.id.tv_count_news);
         tv_news_time = findViewById(R.id.tv_news_time);
         tv_news_title = findViewById(R.id.tv_news_title);

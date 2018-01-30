@@ -180,7 +180,8 @@
         <activity android:name=".activity.GameActivity" />
         <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.DownloadingActivity" />
-        <activity android:name=".activity.NewsActivity"></activity>
+        <activity android:name=".activity.NewsActivity" />
+        <activity android:name=".activity.GiftOneActivity"></activity>
     </application>
 
 </manifest>
