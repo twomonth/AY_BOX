@@ -61,4 +61,6 @@ dependencies {
 
     compile 'com.jakewharton:butterknife:7.0.1'
     testCompile 'junit:junit:4.12'
+    //下拉刷新recycleview
+    compile 'com.wuxiaolong.pullloadmorerecyclerview:library:1.1.2'
 }

@@ -3,19 +3,15 @@ package com.aygames.twomonth.aybox.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ScrollView;
-import android.widget.Scroller;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aygames.twomonth.aybox.R;
@@ -24,7 +20,6 @@ import com.aygames.twomonth.aybox.adapter.GameAllAdapter;
 import com.aygames.twomonth.aybox.adapter.SmallAdapter;
 import com.aygames.twomonth.aybox.bean.Game;
 import com.aygames.twomonth.aybox.utils.DialogUtil;
-import com.aygames.twomonth.aybox.utils.FullyLinearLayoutManager;
 import com.aygames.twomonth.aybox.utils.Logger;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
@@ -38,9 +33,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 import okhttp3.Response;
 
@@ -51,35 +44,64 @@ import okhttp3.Response;
 public class Bt_Home_Fragment extends Fragment {
 
     private RecyclerView recyclerView ;
-    private RecyclerView recycle_gameall;
+//    private RecyclerView recycle_gameall;
     private ArrayList<String> imageList;
     private ConvenientBanner convenientBanner;
     private ArrayList<Game> arrayListBanner;
     private ArrayList<Game> arrayListTuijian;
-    private ArrayList<Game> arrayListGameAll;
-    private GameAllAdapter gameAllAdapter;
+//    private ArrayList<Game> arrayListGameAll;
+    private ArrayList<Game> arrayList1,arrayList2,arrayList3,arrayList4;
+    private RecyclerView recycle_game1,recycle_game2,recycle_game3,recycle_game4;
+    private ImageView iv_hltuijian1,iv_hltuijian2,iv_hltuijian3,iv_hltuijian4;
+    private GameAllAdapter adapter1,adapter2,adapter3,adapter4;
     private SmallAdapter smipleAdapter;
+    private JSONArray jsonArray_hltuijian;
     private View view ;
+    private TextView tv_click;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_bt_home, null);
         initView();
         initData();
-        recycle_gameall.setOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-        });
+//        recycle_gameall.setOnScrollListener(new RecyclerView.OnScrollListener() {
+//            @Override
+//            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+//                super.onScrollStateChanged(recyclerView, newState);
+//            }
+//        });
+
+
+//        tv_click.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getContext(), GameCenterActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
+
         return view;
     }
 
 
     private void initView() {
+
+        tv_click = view.findViewById(R.id.tv_click);
         recyclerView = view.findViewById(R.id.recycle);
-        recycle_gameall = view.findViewById(R.id.recycle_gameall);
+//        recycle_gameall = view.findViewById(R.id.recycle_gameall);
         convenientBanner = view.findViewById(R.id.convenientBanner);
+
+        recycle_game1 = view.findViewById(R.id.recycle_game1);
+        recycle_game2 = view.findViewById(R.id.recycle_game2);
+        recycle_game3 = view.findViewById(R.id.recycle_game3);
+        recycle_game4 = view.findViewById(R.id.recycle_game4);
+
+        iv_hltuijian1 = view.findViewById(R.id.iv_hltuijian1);
+        iv_hltuijian2 = view.findViewById(R.id.iv_hltuijian2);
+        iv_hltuijian3 = view.findViewById(R.id.iv_hltuijian3);
+        iv_hltuijian4 = view.findViewById(R.id.iv_hltuijian4);
+
         DialogUtil.showDialog(getContext(),"正在请求数据");
     }
     private void initData() {
@@ -91,16 +113,21 @@ public class Bt_Home_Fragment extends Fragment {
                     Response response = OkGo.get("http://sdk.aooyou.com/index.php/DataGames/getGames").execute();
                     JSONObject jsonObject = new JSONObject(response.body().string());
                     JSONArray jsonArray_banner = jsonObject.getJSONArray("banner");
-                    JSONArray jsojArary_listtj = jsonObject.getJSONArray("listtj");
-                    JSONArray jsojArary_gameall = jsonObject.getJSONArray("gameall");
-
+                    JSONArray jsonArary_listtj = jsonObject.getJSONArray("listtj");
+                    JSONArray jsonArary_gameall = jsonObject.getJSONArray("gameall");
+                    jsonArray_hltuijian = jsonObject.getJSONArray("hltj");
                     Logger.msg("轮播："+jsonArray_banner.toString());
-                    Logger.msg("列表："+jsojArary_listtj.toString());
-                    Logger.msg("所有："+jsojArary_gameall.toString());
+                    Logger.msg("列表："+jsonArary_listtj.toString());
+                    Logger.msg("所有："+jsonArary_gameall.toString());
 
                     arrayListBanner = new ArrayList<>();
                     arrayListTuijian = new ArrayList<>();
-                    arrayListGameAll = new ArrayList<>();
+                    arrayList1 = new ArrayList<>();
+                    arrayList2 = new ArrayList<>();
+                    arrayList3 = new ArrayList<>();
+                    arrayList4 = new ArrayList<>();
+//                    arrayListGameAll = new ArrayList<>();
+//                    arrayListHLtuijian = new ArrayList<>();
                     //banner 列表
                     for (int i = 0 ;i < jsonArray_banner.length();i++){
                         JSONObject jsonObject_banner = jsonArray_banner.getJSONObject(i);
@@ -112,8 +139,8 @@ public class Bt_Home_Fragment extends Fragment {
                         Logger.msg(game.ico_url+"=="+game.app_name_cn);
                     }
                     //推荐列表
-                    for (int i = 0; i < jsojArary_listtj.length(); i++) {
-                        JSONObject jsonObject_tj = jsojArary_listtj.getJSONObject(i);
+                    for (int i = 0; i < jsonArary_listtj.length(); i++) {
+                        JSONObject jsonObject_tj = jsonArary_listtj.getJSONObject(i);
                         Game game = new Game(jsonObject_tj.getString("ico_url"),
                                 jsonObject_tj.getString("app_name_cn"),
                                 jsonObject_tj.getString("gid")
@@ -122,16 +149,26 @@ public class Bt_Home_Fragment extends Fragment {
                         Logger.msg(game.ico_url+"=="+game.app_name_cn);
                     }
 //                    //所有游戏列表
-                    for (int i = 0; i < jsojArary_gameall.length(); i++) {
-                        JSONObject jsonObject_gameall = jsojArary_gameall.getJSONObject(i);
+                    for (int i = 0; i < jsonArary_gameall.length(); i++) {
+                        JSONObject jsonObject_gameall = jsonArary_gameall.getJSONObject(i);
                         Game game = new Game(
                                 jsonObject_gameall.getString("ico_url")
                                 ,jsonObject_gameall.getString("app_name_cn")
                                 ,jsonObject_gameall.getString("gid")
                                 ,jsonObject_gameall.getString("game_size")
-                                ,jsonObject_gameall.getString("app_type"),jsonObject_gameall.getString("publicity")
+                                ,jsonObject_gameall.getString("app_type")
+                                ,jsonObject_gameall.getString("publicity")
                                 );
-                        arrayListGameAll.add(game);
+//                        arrayListGameAll.add(game);
+                        if (i<5){
+                            arrayList1.add(game);
+                        }else if (4<i & i<10){
+                            arrayList2.add(game);
+                        }else if (9<i & i<15){
+                            arrayList3.add(game);
+                        }else {
+                            arrayList4.add(game);
+                        }
                         Logger.msg(game.ico_url+"=="+game.app_name_cn);
                     }
                     imageList = new ArrayList();
@@ -154,14 +191,107 @@ public class Bt_Home_Fragment extends Fragment {
                         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
                         recyclerView.setLayoutManager(linearLayoutManager);
 
-                        gameAllAdapter = new GameAllAdapter(getContext(),arrayListGameAll);
-                        recycle_gameall.setAdapter(gameAllAdapter);
+//                        gameAllAdapter = new GameAllAdapter(getContext(),arrayListGameAll);
+//                        recycle_gameall.setAdapter(gameAllAdapter);
 //                        LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
 //                        recycle_gameall.setLayoutManager(linearLayoutManager1);
-                        FullyLinearLayoutManager linearLayoutManager3 = new FullyLinearLayoutManager(getContext());
-                        recycle_gameall.setNestedScrollingEnabled(false);
-                        recycle_gameall.setLayoutManager(linearLayoutManager3);
-                        recycle_gameall.setItemAnimator(new DefaultItemAnimator());
+
+//                        FullyLinearLayoutManager linearLayoutManager3 = new FullyLinearLayoutManager(getContext());
+//                        recycle_gameall.setNestedScrollingEnabled(false);
+//                        recycle_gameall.setLayoutManager(linearLayoutManager3);
+//                        recycle_gameall.setItemAnimator(new DefaultItemAnimator());
+                        adapter1 = new GameAllAdapter(getContext(),arrayList1);
+                        LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+                        recycle_game1.setLayoutManager(linearLayoutManager1);
+                        recycle_game1.setAdapter(adapter1);
+
+                        adapter2 = new GameAllAdapter(getContext(),arrayList2);
+                        LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+                        recycle_game2.setLayoutManager(linearLayoutManager2);
+                        recycle_game2.setAdapter(adapter2);
+
+                        adapter3 = new GameAllAdapter(getContext(),arrayList3);
+                        LinearLayoutManager linearLayoutManager3 = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+                        recycle_game3.setLayoutManager(linearLayoutManager3);
+                        recycle_game3.setAdapter(adapter3);
+
+                        adapter4 = new GameAllAdapter(getContext(),arrayList4);
+                        LinearLayoutManager linearLayoutManager4 = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+                        recycle_game4.setLayoutManager(linearLayoutManager4);
+                        recycle_game4.setAdapter(adapter4);
+
+                        try {
+                            Glide.with(getContext()).load(jsonArray_hltuijian.getJSONObject(0).getString("img") ).error(R.mipmap.ic_launcher).into(iv_hltuijian1);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        iv_hltuijian1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(getContext(), GameActivity.class);
+                                try {
+                                    intent.putExtra("gid",jsonArray_hltuijian.getJSONObject(0).getString("gid"));
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                startActivity(intent);
+                            }
+                        });
+
+                        try {
+                            Glide.with(getContext()).load(jsonArray_hltuijian.getJSONObject(1).getString("img") ).error(R.mipmap.ic_launcher).into(iv_hltuijian2);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        iv_hltuijian2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(getContext(), GameActivity.class);
+                                try {
+                                    intent.putExtra("gid",jsonArray_hltuijian.getJSONObject(1).getString("gid"));
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                startActivity(intent);
+                            }
+                        });
+
+                        try {
+                            Glide.with(getContext()).load(jsonArray_hltuijian.getJSONObject(2).getString("img") ).error(R.mipmap.ic_launcher).into(iv_hltuijian3);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        iv_hltuijian3.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(getContext(), GameActivity.class);
+                                try {
+                                    intent.putExtra("gid",jsonArray_hltuijian.getJSONObject(2).getString("gid"));
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                startActivity(intent);
+                            }
+                        });
+
+                        try {
+                            Glide.with(getContext()).load(jsonArray_hltuijian.getJSONObject(3).getString("img") ).error(R.mipmap.ic_launcher).into(iv_hltuijian4);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        iv_hltuijian4.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(getContext(), GameActivity.class);
+                                try {
+                                    intent.putExtra("gid",jsonArray_hltuijian.getJSONObject(3).getString("gid"));
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                startActivity(intent);
+                            }
+                        });
+
 
                         //轮播图
                         convenientBanner.setPages(
@@ -172,7 +302,7 @@ public class Bt_Home_Fragment extends Fragment {
                                     }
                                 }, imageList)
                                 //设置两个点图片作为翻页指示器，不设置则没有指示器，可以根据自己需求自行配合自己的指示器,不需要圆点指示器可用不设
-                                .setPageIndicator(new int[]{R.mipmap.ic_down_hot, R.mipmap.ic_down_hot_black})
+                                .setPageIndicator(new int[]{R.mipmap.nb, R.mipmap.nc})
                                 //设置指示器的方向
                                 .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.ALIGN_PARENT_RIGHT);
                                 //设置翻页的效果，不需要翻页效果可用不设
@@ -196,12 +326,12 @@ public class Bt_Home_Fragment extends Fragment {
 
                             }
                         });
-                        gameAllAdapter.setOnItemClickListener(new GameAllAdapter.OnItemClickListener() {
+                        adapter1.setOnItemClickListener(new GameAllAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-                                Toast.makeText(getContext(),arrayListGameAll.get(position).app_name_cn,Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(),arrayList1.get(position).app_name_cn,Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getContext(), GameActivity.class);
-                                intent.putExtra("gid",arrayListGameAll.get(position).gid);
+                                intent.putExtra("gid",arrayList1.get(position).gid);
                                 intent.putExtra("type",1);
                                 startActivity(intent);
                             }
@@ -211,6 +341,54 @@ public class Bt_Home_Fragment extends Fragment {
 
                             }
                         });
+                        adapter4.setOnItemClickListener(new GameAllAdapter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                Toast.makeText(getContext(),arrayList1.get(position).app_name_cn,Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getContext(), GameActivity.class);
+                                intent.putExtra("gid",arrayList1.get(position).gid);
+                                intent.putExtra("type",1);
+                                startActivity(intent);
+                            }
+
+                            @Override
+                            public void onItemLongClick(View view, int position) {
+
+                            }
+                        });
+                        adapter3.setOnItemClickListener(new GameAllAdapter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                Toast.makeText(getContext(),arrayList1.get(position).app_name_cn,Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getContext(), GameActivity.class);
+                                intent.putExtra("gid",arrayList1.get(position).gid);
+                                intent.putExtra("type",1);
+                                startActivity(intent);
+                            }
+
+                            @Override
+                            public void onItemLongClick(View view, int position) {
+
+                            }
+                        });
+                        adapter2.setOnItemClickListener(new GameAllAdapter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                Toast.makeText(getContext(),arrayList1.get(position).app_name_cn,Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getContext(), GameActivity.class);
+                                intent.putExtra("gid",arrayList1.get(position).gid);
+                                intent.putExtra("type",1);
+                                startActivity(intent);
+                            }
+
+                            @Override
+                            public void onItemLongClick(View view, int position) {
+
+                            }
+                        });
+
+
+
                         convenientBanner.setOnItemClickListener(new OnItemClickListener() {
                             @Override
                             public void onItemClick(int position) {

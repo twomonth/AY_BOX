@@ -45,8 +45,8 @@ public class BT_Fragment extends Fragment {
     private void initData() {
         items = new ArrayList<>();
         items.add(new Pair<String, Fragment>("首页", new Bt_Home_Fragment()));
-        items.add(new Pair<String, Fragment>("开服", new Bt_Start_Fragment()));
         items.add(new Pair<String, Fragment>("中心", new Bt_Center_Fragment()));
+        items.add(new Pair<String, Fragment>("开服", new Bt_Start_Fragment()));
         items.add(new Pair<String, Fragment>("礼包", new Bt_Gift_Fragment()));
         items.add(new Pair<String, Fragment>("新闻", new Bt_News_Fragment()));
         vp_bt.setAdapter(new MainAdapter(getChildFragmentManager()));

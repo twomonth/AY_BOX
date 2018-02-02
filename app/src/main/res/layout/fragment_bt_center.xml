@@ -26,7 +26,7 @@
             android:layout_marginLeft="5dp"
             android:layout_below="@+id/tv_center_type"
             android:layout_marginTop="5dp"
-            android:numColumns="6">
+            android:numColumns="8">
 
         </GridView>
 
@@ -52,23 +52,31 @@
             android:layout_marginLeft="5dp"
             android:layout_below="@+id/tv_center_ticai"
             android:layout_marginTop="5dp"
-            android:numColumns="7"/>
+            android:numColumns="8"/>
     </RelativeLayout>
     <ToggleButton
         android:id="@+id/toggle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
         android:checked="true"
-        android:textOff="开启选项列表"
-        android:textOn="关闭选项列表"
+        android:textOn=""
+        android:textOff=""
+        android:background="@drawable/toggle_selector"
         android:layout_below="@+id/rl_center_type"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycle_center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:layout_below="@+id/toggle">
     </android.support.v7.widget.RecyclerView>
+
+
+    <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
+        android:id="@+id/pullLoadMoreRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toggle"/>
 
 </RelativeLayout>

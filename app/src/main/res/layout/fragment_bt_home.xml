@@ -1,87 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorWhiteAndBlack">
+
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-    <com.bigkoo.convenientbanner.ConvenientBanner
-        android:id="@+id/convenientBanner"
-        android:layout_width="match_parent"
-        android:layout_height="140dp"
-        app:canLoop="true"/>
-
-    <RelativeLayout
-        android:id="@+id/rl_tuijian"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/convenientBanner"
-        android:padding="5dp">
-
-        <TextView
-            android:id="@+id/tv_tuijian"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="推荐"
-            android:textColor="@color/colorOrange1" />
-
-        <View
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignLeft="@+id/tv_tuijian"
-            android:layout_alignRight="@+id/tv_tuijian"
-            android:layout_below="@+id/tv_tuijian"
-            android:background="@color/colorAccent" />
+            android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_tuijian"
-            android:layout_marginTop="5dp">
-        </android.support.v7.widget.RecyclerView>
+            <com.bigkoo.convenientbanner.ConvenientBanner
+                android:id="@+id/convenientBanner"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                app:canLoop="true" />
 
-    </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl_tuijian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/convenientBanner"
+                android:padding="5dp">
 
-    <RelativeLayout
-        android:id="@+id/rl_gameall"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/rl_tuijian"
-        android:padding="5dp">
+                <TextView
+                    android:id="@+id/tv_tuijian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="推荐"
+                    android:textColor="@color/colorOrange1" />
 
-        <TextView
-            android:id="@+id/tv_gameall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="全部"
-            android:textColor="@color/colorOrange1" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@+id/tv_tuijian"
+                    android:layout_alignRight="@+id/tv_tuijian"
+                    android:layout_below="@+id/tv_tuijian"
+                    android:background="@color/colorAccent" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignLeft="@+id/tv_gameall"
-            android:layout_alignRight="@+id/tv_gameall"
-            android:layout_below="@+id/tv_gameall"
-            android:background="@color/colorAccent" />
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_tuijian"
+                    android:layout_marginTop="5dp"></android.support.v7.widget.RecyclerView>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycle_gameall"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/tv_gameall"
-            android:layout_marginTop="5dp">
-        </android.support.v7.widget.RecyclerView>
+            </RelativeLayout>
 
-    </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl_gameall"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/rl_tuijian"
+                android:padding="5dp">
 
-    </RelativeLayout>
+                <TextView
+                    android:id="@+id/tv_gameall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="全部"
+                    android:textColor="@color/colorOrange1" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@+id/tv_gameall"
+                    android:layout_alignRight="@+id/tv_gameall"
+                    android:layout_below="@+id/tv_gameall"
+                    android:background="@color/colorAccent" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycle_game1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/tv_gameall"></android.support.v7.widget.RecyclerView>
+
+                <ImageView
+                    android:id="@+id/iv_hltuijian1"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_below="@+id/recycle_game1"
+                    android:layout_margin="3dp"
+                    android:scaleType="fitXY" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycle_game2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/iv_hltuijian1"></android.support.v7.widget.RecyclerView>
+
+                <ImageView
+                    android:id="@+id/iv_hltuijian2"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_below="@+id/recycle_game2"
+                    android:layout_margin="3dp"
+                    android:scaleType="fitXY" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycle_game3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/iv_hltuijian2"></android.support.v7.widget.RecyclerView>
+
+                <ImageView
+                    android:id="@+id/iv_hltuijian3"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_below="@+id/recycle_game3"
+                    android:layout_margin="3dp"
+                    android:scaleType="fitXY" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycle_game4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/iv_hltuijian3"></android.support.v7.widget.RecyclerView>
+
+                <ImageView
+                    android:id="@+id/iv_hltuijian4"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_below="@+id/recycle_game4"
+                    android:layout_margin="3dp"
+                    android:scaleType="fitXY"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_click"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_gameall"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="左滑进入游戏中心查看更多。" />
+        </RelativeLayout>
     </ScrollView>
+
 </RelativeLayout>

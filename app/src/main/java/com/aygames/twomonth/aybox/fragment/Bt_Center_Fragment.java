@@ -21,8 +21,8 @@ import com.aygames.twomonth.aybox.R;
 import com.aygames.twomonth.aybox.activity.GameActivity;
 import com.aygames.twomonth.aybox.adapter.GameAllAdapter;
 import com.aygames.twomonth.aybox.bean.Game;
-import com.aygames.twomonth.aybox.utils.Logger;
 import com.lzy.okgo.OkGo;
+import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -50,20 +50,41 @@ public class Bt_Center_Fragment extends Fragment {
     private ToggleButton toggle;
     private JSONArray jsonArray_type,jsonArray_ticai;
     private ArrayList<Game> arrayList_center = new ArrayList<>();
+    private ArrayList<Game> arrayList = new ArrayList<>();
+    private PullLoadMoreRecyclerView iRecyclerView;
+    private GameAllAdapter adapter;
+    private int item = 0;
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_bt_center, null);
 
         initView();
         initData();
 
+        iRecyclerView.setPullRefreshEnable(false);
+        iRecyclerView.setFooterViewText("加载更多...");
+        iRecyclerView.setOnPullLoadMoreListener(new PullLoadMoreRecyclerView.PullLoadMoreListener() {
+            @Override
+            public void onRefresh() {
+
+            }
+
+            @Override
+            public void onLoadMore() {
+                item = item+20;
+                getAllGame();
+            }
+        });
+
+
+
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
-                    gv_ticai.setVisibility(View.VISIBLE);
+                    rl_center.setVisibility(View.VISIBLE);
                 }else {
-                    gv_ticai.setVisibility(View.GONE);
+                    rl_center.setVisibility(View.GONE);
                 }
             }
         });
@@ -110,7 +131,7 @@ public class Bt_Center_Fragment extends Fragment {
 
         final String [] from ={"text"};
         final int [] to = {R.id.tv_center_type_item};
-
+        //加载
         new Thread(){
             @Override
             public void run() {
@@ -146,7 +167,7 @@ public class Bt_Center_Fragment extends Fragment {
                 }
             }
         }.start();
-
+        getAllGame();
     }
 
     private void initView() {
@@ -155,6 +176,7 @@ public class Bt_Center_Fragment extends Fragment {
         gv_type = view.findViewById(R.id.gv_type);
         gv_ticai = view.findViewById(R.id.gv_ticai);
         toggle = view.findViewById(R.id.toggle);
+        iRecyclerView = view.findViewById(R.id.pullLoadMoreRecyclerView);
 
     }
 
@@ -192,7 +214,8 @@ public class Bt_Center_Fragment extends Fragment {
                         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
                         recyclerView_center.setLayoutManager(linearLayoutManager);
                         recyclerView_center.setAdapter(adapter);
-
+                        iRecyclerView.setVisibility(View.GONE);
+                        recyclerView_center.setVisibility(View.VISIBLE);
                         adapter.setOnItemClickListener(new GameAllAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
@@ -207,6 +230,64 @@ public class Bt_Center_Fragment extends Fragment {
 
                             }
                         });
+                    }
+                });
+            }
+        }.start();
+    }
+    void getAllGame(){
+        //默认加载所有游戏
+        new Thread(){
+            @Override
+            public void run() {
+                try {
+                    Response response = OkGo.get("http://sdk.aooyou.com/index.php/DataGames/getGameall/start/"+item).execute();
+                    JSONArray jsonArray = new JSONArray(response.body().string());
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        Game game = new Game(
+                                jsonObject.getString("ico_url")
+                                ,jsonObject.getString("app_name_cn")
+                                ,jsonObject.getString("gid")
+                                ,jsonObject.getString("game_size")
+                                ,jsonObject.getString("app_type")
+                                ,jsonObject.getString("publicity")
+                        );
+                        arrayList.add(game);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (item == 0){
+                            adapter = new GameAllAdapter(getContext(),arrayList);
+                            iRecyclerView.setLinearLayout();
+                            iRecyclerView.setAdapter(adapter);
+                            adapter.setOnItemClickListener(new GameAllAdapter.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(View view, int position) {
+                                    Intent intent = new Intent(getContext(), GameActivity.class);
+                                    intent.putExtra("gid",arrayList.get(position).gid);
+                                    startActivity(intent);
+                                }
+
+                                @Override
+                                public void onItemLongClick(View view, int position) {
+
+                                }
+                            });
+                        }else {
+                            adapter.notifyDataSetChanged();
+                            iRecyclerView.setPullLoadMoreCompleted();
+                        }
+
+
+
+
                     }
                 });
             }
