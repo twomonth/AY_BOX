@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@mipmap/background">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/ll_user_head"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:background="@color/colorOrange1">
         <ImageView
             android:id="@+id/iv_user_back"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:background="@mipmap/title_back"/>
@@ -22,11 +21,12 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:textColor="@color/colorWhite"
-            android:textSize="30dp"
+            android:textSize="15dp"
             android:text="用户管理"/>
     </RelativeLayout>
 
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/ll_user_head"
@@ -41,6 +41,7 @@
             android:layout_marginTop="40dp"
             android:background="@mipmap/userhead"/>
         <RelativeLayout
+            android:id="@+id/rl_title_usercenter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/iv_user_head"
@@ -86,6 +87,74 @@
                 android:text="**********"/>
         </RelativeLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_below="@+id/rl_title_usercenter">
+
+            <LinearLayout
+                android:id="@+id/ll_user"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@mipmap/ic_launcher_round"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorWhite"
+                    android:text="个人信息"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_download"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@mipmap/ic_launcher_round"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorWhite"
+                    android:text="下载管理"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_fanli"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@mipmap/ic_launcher_round"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorWhite"
+                    android:text="返利中心"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
     </RelativeLayout>
+
 
 </RelativeLayout>

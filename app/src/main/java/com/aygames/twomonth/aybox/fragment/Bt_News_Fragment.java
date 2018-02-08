@@ -145,6 +145,7 @@ public class Bt_News_Fragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getContext(), NewsActivity.class);
                 intent.putExtra("nid",list_news_all.get(position).newsid);
+                intent.putExtra("title",list_news_all.get(position).newsTitle);
                 startActivity(intent);
             }
         });

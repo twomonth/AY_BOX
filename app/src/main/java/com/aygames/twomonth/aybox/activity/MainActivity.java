@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 //    float y1 = 0;
 //    float y2 = 0;
 
-    private DrawerLayout drawerLayout ;
+    private RelativeLayout drawerLayout ;
     private TextView tv_h5,tv_bt;
     private FrameLayout fl_content_main;
     private ImageView iv_user,iv_share;
@@ -118,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        drawerLayout = (DrawerLayout) findViewById(R.id.dl_main);
+        drawerLayout =  findViewById(R.id.dl_main);
         tv_h5 = (TextView) findViewById(R.id.tv_h5);
         tv_bt = (TextView) findViewById(R.id.tv_bt);
         iv_share = (ImageView) findViewById(R.id.iv_share);
