@@ -1,7 +1,9 @@
 package com.aygames.twomonth.aybox.activityfb;
 
+
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -14,6 +16,9 @@ import android.widget.ImageView;
 import com.aygames.twomonth.aybox.R;
 import com.aygames.twomonth.aybox.fragment.Bt_Gift_Fragment;
 import com.aygames.twomonth.aybox.fragment.Bt_News_Fragment;
+import com.aygames.twomonth.aybox.fragment.Bt_Start_Fragment;
+import com.aygames.twomonth.aybox.fragment.Rebate_Fragment;
+import com.aygames.twomonth.aybox.fragment.Rebate_Fragment_order;
 import com.aygames.twomonth.aybox.utils.Logger;
 
 import java.util.ArrayList;
@@ -49,9 +54,9 @@ public class RebateActivity extends AppCompatActivity {
 
     private void initData() {
         items = new ArrayList<>();
-        items.add(new Pair<String, Fragment>("任务", new Bt_Gift_Fragment()));
-        items.add(new Pair<String, Fragment>("订单", new Bt_News_Fragment()));
-        viewPager.setAdapter(new MainAdapter(this.getSupportFragmentManager()));
+        items.add(new Pair<String, Fragment>("任务", new Rebate_Fragment()));
+        items.add(new Pair<String, Fragment>("订单", new Rebate_Fragment_order()));
+        viewPager.setAdapter(new MainAdapter(getSupportFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
     }
 

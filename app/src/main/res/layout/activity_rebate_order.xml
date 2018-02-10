@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlackBack"
+    tools:context="com.aygames.twomonth.aybox.activity.RebateOrderActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/rl_back">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/read"
+            android:textStyle="italic"
+            android:textSize="13dp"
+            android:text="@string/rebatehint"/>
+
+        <TextView
+            android:id="@+id/smallcode_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:paddingBottom="10dp"
+            android:text="小号昵称："
+            android:textColor="@color/colorOrange1" />
+
+        <TextView
+            android:id="@+id/gamename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/smallcode_name"
+            android:layout_below="@+id/smallcode_name"
+            android:layout_marginTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="游戏名称："
+            android:textColor="@color/colorOrange1" />
+
+        <TextView
+            android:id="@+id/smallcode_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/smallcode_name"
+            android:layout_below="@+id/gamename"
+            android:layout_marginTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="角色区服："
+            android:textColor="@color/colorOrange1" />
+
+        <TextView
+            android:id="@+id/heroname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/smallcode_name"
+            android:layout_below="@id/smallcode_service"
+            android:layout_marginTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="角色名称："
+            android:textColor="@color/colorOrange1" />
+
+        <TextView
+            android:id="@+id/rebate_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/smallcode_name"
+            android:layout_below="@+id/heroname"
+            android:layout_marginTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="充值金额："
+            android:textColor="@color/colorOrange1" />
+
+        <EditText
+            android:id="@+id/et_smallcode_name"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:layout_alignBottom="@+id/smallcode_name"
+            android:layout_toRightOf="@+id/smallcode_name" />
+
+        <EditText
+            android:id="@+id/et_gamename"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:layout_alignBottom="@+id/gamename"
+            android:layout_toRightOf="@+id/gamename" />
+
+        <EditText
+            android:id="@+id/et_service"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:layout_alignBottom="@+id/smallcode_service"
+            android:layout_toRightOf="@+id/smallcode_service" />
+
+        <EditText
+            android:id="@+id/et_heroname"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:layout_alignBottom="@+id/heroname"
+            android:layout_toRightOf="@+id/heroname" />
+
+        <EditText
+            android:id="@+id/et_money"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            android:layout_alignBottom="@+id/rebate_money"
+            android:layout_toRightOf="@+id/rebate_money" />
+
+        <Button
+            android:id="@+id/bt_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/et_money"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/btn_login"
+            android:text="确定" />
+
+        <TextView
+            android:id="@+id/tv_changeservice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_toRightOf="@+id/et_service"
+            android:layout_alignBottom="@+id/smallcode_service"
+            android:text="修改"/>
+        <TextView
+            android:id="@+id/tv_changeheroname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_toRightOf="@+id/et_heroname"
+            android:layout_alignBottom="@+id/heroname"
+            android:text="修改"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

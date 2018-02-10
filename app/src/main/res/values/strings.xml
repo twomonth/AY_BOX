@@ -5,6 +5,7 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="drawer_open">OPEN</string>
     <string name="drawer_close">CLOSE</string>
+    <string name="rebatehint">*如果与玩家意愿不符，玩家可手动修改部分内容。*</string>
 
 
     <string-array name="type">

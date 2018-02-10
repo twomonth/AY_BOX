@@ -182,6 +182,7 @@
         <activity android:name=".activity.DownloadingActivity" />
         <activity android:name=".activity.NewsActivity" />
         <activity android:name=".activity.GiftOneActivity" />
+        <activity android:name=".activity.RebateOrderActivity"></activity>
     </application>
 
 </manifest>
