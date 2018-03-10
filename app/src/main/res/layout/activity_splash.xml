@@ -8,7 +8,8 @@
     <ImageView
         android:id="@+id/iv_adver"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="@mipmap/logine"/>
     <TextView
         android:id="@+id/tv_version"
         android:layout_width="wrap_content"

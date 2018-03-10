@@ -10,7 +10,10 @@
             android:id="@+id/tv_center_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:text="游戏类型"
+            android:textSize="12dp"
+            android:ems="1"
             android:textColor="@color/colorOrange1" />
         <View
             android:layout_width="match_parent"
@@ -24,8 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_below="@+id/tv_center_type"
-            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/tv_center_type"
+
             android:numColumns="8">
 
         </GridView>
@@ -36,6 +39,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/gv_type"
             android:layout_marginTop="5dp"
+            android:ems="1"
+            android:layout_marginLeft="5dp"
+            android:textSize="12dp"
             android:text="游戏题材"
             android:textColor="@color/colorOrange1" />
         <View
@@ -50,8 +56,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_below="@+id/tv_center_ticai"
-            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/tv_center_ticai"
+            android:layout_alignTop="@+id/tv_center_ticai"
+
             android:numColumns="8"/>
     </RelativeLayout>
     <ToggleButton

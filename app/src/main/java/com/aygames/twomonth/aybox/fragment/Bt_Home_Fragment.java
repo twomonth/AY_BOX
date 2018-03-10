@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ToxicBakery.viewpager.transforms.CubeOutTransformer;
 import com.aygames.twomonth.aybox.R;
 import com.aygames.twomonth.aybox.activity.GameActivity;
 import com.aygames.twomonth.aybox.adapter.GameAllAdapter;
@@ -34,6 +36,9 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
 
 import okhttp3.Response;
 
@@ -64,21 +69,6 @@ public class Bt_Home_Fragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_bt_home, null);
         initView();
         initData();
-//        recycle_gameall.setOnScrollListener(new RecyclerView.OnScrollListener() {
-//            @Override
-//            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-//                super.onScrollStateChanged(recyclerView, newState);
-//            }
-//        });
-
-
-//        tv_click.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getContext(), GameCenterActivity.class);
-//                startActivity(intent);
-//            }
-//        });
 
 
         return view;
@@ -306,11 +296,12 @@ public class Bt_Home_Fragment extends Fragment {
                                 //设置指示器的方向
                                 .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.ALIGN_PARENT_RIGHT);
                                 //设置翻页的效果，不需要翻页效果可用不设
-                                //.setPageTransformer(Transformer.DefaultTransformer);    集成特效之后会有白屏现象，新版已经分离，如果要集成特效的例子可以看Demo的点击响应。
-                                //convenientBanner.setManualPageable(false);//设置不能手动影响
-                        convenientBanner.startTurning(2000);
+//                        convenientBanner.setPageTransformer(Transformer.DefaultTransformer);   // 集成特效之后会有白屏现象，新版已经分离，如果要集成特效的例子可以看Demo的点击响应
+                        convenientBanner.getViewPager().setPageTransformer(true, new CubeOutTransformer());
+                        convenientBanner.startTurning(3000);
                         convenientBanner.setManualPageable(true);//设置不能手动影响  默认是手指触摸 轮播图不能翻页
                         convenientBanner.setPointViewVisible(true);
+                        convenientBanner.setScrollDuration(1000);
                         smipleAdapter.setOnItemClickListener(new SmallAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {

@@ -8,8 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/btn_login"
+
         android:textColor="@color/colorBlack"
         android:textSize="13dp"
         android:text="测试"/>

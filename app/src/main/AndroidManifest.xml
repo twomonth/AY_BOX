@@ -39,7 +39,7 @@
     <application
         android:name=".application.AyBoxApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/logotest"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -181,7 +181,8 @@
         <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.DownloadingActivity" />
         <activity android:name=".activity.NewsActivity" />
-        <activity android:name=".activity.GiftOneActivity" />
+        <activity android:name=".activity.GiftOneActivity"
+            android:exported="true"/>
         <activity android:name=".activity.RebateOrderActivity"></activity>
     </application>
 

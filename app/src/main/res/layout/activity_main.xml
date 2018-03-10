@@ -12,7 +12,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
             android:orientation="horizontal"
             android:background="@color/colorOrange1">
             <ImageView
@@ -42,9 +42,10 @@
                     android:layout_width="80dp"
                     android:layout_height="30dp"
                     android:gravity="center"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorWhiteAndBlack"
+                    android:textStyle="bold"
                     android:textSize="18dp"
-                    android:text="BT手游"/>
+                    android:text="福利盒子"/>
                 <View
                     android:layout_width="20dp"
                     android:layout_height="10dp"/>
@@ -52,19 +53,24 @@
                     android:id="@+id/tv_h5"
                     android:layout_width="80dp"
                     android:layout_height="30dp"
+                    android:visibility="gone"
                     android:gravity="center"
                     android:textColor="@color/colorWhite"
                     android:textSize="18dp"
                     android:text="H5游戏"/>
             </LinearLayout>
         </RelativeLayout>
-    </RelativeLayout>
 
-    <FrameLayout
-        android:id="@+id/fl_content_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="40dp">
-    </FrameLayout>
+        <FrameLayout
+            android:id="@+id/fl_content_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            >
+
+        </FrameLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

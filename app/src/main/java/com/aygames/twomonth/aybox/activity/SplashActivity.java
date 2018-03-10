@@ -86,10 +86,11 @@ public class SplashActivity extends Activity {
     private void initView() {
         iv_adver = findViewById(R.id.iv_adver);
         tv_version =  findViewById(R.id.tv_version);
-        Glide.with(this)
-                .load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516276523173&di=9e1e7f0c5720936754961483369329b2&imgtype=0&src=http%3A%2F%2Fi4.download.fd.pchome.net%2Ft_600x1024%2Fg1%2FM00%2F0B%2F05%2FoYYBAFQOXSyITA1nAAPY05pHv1gAAB6UgCNjjoAA9jr639.jpg")
-                .error(R.mipmap.logo)
-                .into(iv_adver);
+
+//        Glide.with(this)
+//                .load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516276523173&di=9e1e7f0c5720936754961483369329b2&imgtype=0&src=http%3A%2F%2Fi4.download.fd.pchome.net%2Ft_600x1024%2Fg1%2FM00%2F0B%2F05%2FoYYBAFQOXSyITA1nAAPY05pHv1gAAB6UgCNjjoAA9jr639.jpg")
+//                .error(R.mipmap.logo)
+//                .into(iv_adver);
     }
     /**
      * 检测版本更新

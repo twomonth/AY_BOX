@@ -38,9 +38,9 @@
         android:id="@+id/tv_service_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_below="@+id/tv_type_start"
-        android:layout_alignLeft="@+id/tv_name_start"
+        android:layout_alignBottom="@+id/tv_type_start"
+        android:layout_toRightOf="@+id/tv_type_start"
+        android:layout_marginLeft="5dp"
         android:textColor="@color/green"
         android:textStyle="bold"
         android:text="qufu"/>

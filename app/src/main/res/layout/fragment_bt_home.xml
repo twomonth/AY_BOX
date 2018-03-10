@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhiteAndBlack">
+    android:background="@color/colorWhite">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -18,13 +18,99 @@
                 android:id="@+id/convenientBanner"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
+                android:background="@drawable/rl_back"
                 app:canLoop="true" />
+            <LinearLayout
+                android:id="@+id/ll_function"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:weightSum="4"
+                android:layout_below="@+id/convenientBanner"
+                android:orientation="horizontal">
+                <RelativeLayout
+                    android:id="@+id/rl_bt"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:background="@mipmap/ic_launcher_round"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="变态"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="5dp"
+                        android:layout_alignParentBottom="true"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/rl_manv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:background="@mipmap/ic_launcher_round"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="满V"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="5dp"
+                        android:layout_alignParentBottom="true"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/rl_fuli"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:background="@mipmap/ic_launcher_round"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="福利"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="5dp"
+                        android:layout_alignParentBottom="true"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/rl_fanli"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:background="@mipmap/ic_launcher_round"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="返利"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="5dp"
+                        android:layout_alignParentBottom="true"/>
+                </RelativeLayout>
+
+            </LinearLayout>
 
             <RelativeLayout
                 android:id="@+id/rl_tuijian"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/convenientBanner"
+                android:layout_below="@+id/ll_function"
                 android:padding="5dp">
 
                 <TextView
@@ -47,7 +133,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_tuijian"
-                    android:layout_marginTop="5dp"></android.support.v7.widget.RecyclerView>
+                    android:layout_marginTop="5dp">
+                </android.support.v7.widget.RecyclerView>
 
             </RelativeLayout>
 

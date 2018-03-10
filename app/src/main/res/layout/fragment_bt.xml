@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
-
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tab_bt"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:background="@color/colorPrimary"
-        app:tabTextColor="@color/colorWhite"
-        app:tabMode="scrollable"
-        app:tabTextAppearance="@style/TabLayoutTextStyle"/>
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_bt"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/tab_bt"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
-
-</LinearLayout>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_bt"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        app:tabIndicatorHeight="0dp"
+        app:tabTextColor="@color/colorWhite"
+        app:tabMode="fixed"
+        app:tabTextAppearance="@style/TabLayoutTextStyle"/>
+</RelativeLayout>

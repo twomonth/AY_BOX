@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.aygames.twomonth.aybox.R;
 import com.aygames.twomonth.aybox.adapter.GiftOneBaseAdapter;
 import com.aygames.twomonth.aybox.bean.GiftItem;
+import com.aygames.twomonth.aybox.utils.Logger;
 import com.bumptech.glide.Glide;
 import com.lzy.okgo.OkGo;
 
@@ -48,8 +49,9 @@ public class GiftOneActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gift_one);
 
         gid = getIntent().getStringExtra("gid");
+        Logger.msg("礼包页面启动获取参数"+gid);
         initView();
-        initData();
+//        initData();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -107,6 +109,8 @@ public class GiftOneActivity extends AppCompatActivity {
                     e.printStackTrace();
                 } catch (JSONException e) {
                     e.printStackTrace();
+                }finally {
+                    Toast.makeText(GiftOneActivity.this,"youxiweizhaodao ",Toast.LENGTH_SHORT).show();
                 }
             }
         }.start();

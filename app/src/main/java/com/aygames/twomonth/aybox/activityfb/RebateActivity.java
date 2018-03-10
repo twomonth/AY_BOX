@@ -41,14 +41,18 @@ public class RebateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rebate);
 
-        if (getIntent().getData() == null){
+        if (getIntent().getStringArrayListExtra("msg") == null){
             Logger.msg("盒子内部启动");
         }else {
-            Logger.msg("SDK启动"+getIntent().getData());
+            ArrayList list = getIntent().getStringArrayListExtra("msg");
+
+            for (int i = 0; i < list.size(); i++) {
+                Logger.msg("SDK启动"+list.get(i));
+            }
         }
         ButterKnife.bind(this);
 
-        initData();
+//        initData();
 
     }
 

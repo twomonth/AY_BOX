@@ -28,13 +28,6 @@ import com.aygames.twomonth.aybox.service.AyboxService;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    //手指按下的点为(x1, y1)手指离开屏幕的点为(x2, y2)
-//    float x1 = 0;
-//    float x2 = 0;
-//    float y1 = 0;
-//    float y2 = 0;
-
     private RelativeLayout drawerLayout ;
     private TextView tv_h5,tv_bt;
     private FrameLayout fl_content_main;
@@ -53,34 +46,34 @@ public class MainActivity extends AppCompatActivity {
         initView();
         initData();
 
-        tv_bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                initTab();
-                GradientDrawable gd = new GradientDrawable();//创建drawable
-                gd.setColor(Color.parseColor("#058aff"));
-                gd.setCornerRadius(50);
-                gd.setStroke(5, Color.parseColor("#bebebe"));//边框颜色
-                tv_bt.setBackgroundDrawable(gd);
-                fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fl_content_main , new BT_Fragment());
-                fragmentTransaction.commit();
-            }
-        });
-        tv_h5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                initTab();
-                GradientDrawable gd = new GradientDrawable();//创建drawable
-                gd.setColor(Color.parseColor("#058aff"));
-                gd.setCornerRadius(50);
-                gd.setStroke(5, Color.parseColor("#bebebe"));//边框颜色
-                tv_h5.setBackgroundDrawable(gd);
-                fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fl_content_main , new H5_Fragment());
-                fragmentTransaction.commit();
-            }
-        });
+//        tv_bt.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                initTab();
+//                GradientDrawable gd = new GradientDrawable();//创建drawable
+//                gd.setColor(Color.parseColor("#058aff"));
+//                gd.setCornerRadius(50);
+//                gd.setStroke(5, Color.parseColor("#bebebe"));//边框颜色
+//                tv_bt.setBackgroundDrawable(gd);
+//                fragmentTransaction = fragmentManager.beginTransaction();
+//                fragmentTransaction.replace(R.id.fl_content_main , new BT_Fragment());
+//                fragmentTransaction.commit();
+//            }
+//        });
+//        tv_h5.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                initTab();
+//                GradientDrawable gd = new GradientDrawable();//创建drawable
+//                gd.setColor(Color.parseColor("#058aff"));
+//                gd.setCornerRadius(50);
+//                gd.setStroke(5, Color.parseColor("#bebebe"));//边框颜色
+//                tv_h5.setBackgroundDrawable(gd);
+//                fragmentTransaction = fragmentManager.beginTransaction();
+//                fragmentTransaction.replace(R.id.fl_content_main , new H5_Fragment());
+//                fragmentTransaction.commit();
+//            }
+//        });
         iv_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,13 +98,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        initTab();
-        initTab();
-        GradientDrawable gd = new GradientDrawable();//创建drawable
-        gd.setColor(Color.parseColor("#058aff"));
-        gd.setCornerRadius(50);
-        gd.setStroke(5, Color.parseColor("#bebebe"));//边框颜色
-        tv_bt.setBackgroundDrawable(gd);
+//        initTab();
+//        GradientDrawable gd = new GradientDrawable();//创建drawable
+//        gd.setColor(Color.parseColor("#058aff"));
+//        gd.setCornerRadius(50);
+//        gd.setStroke(5, Color.parseColor("#bebebe"));//边框颜色
+//        tv_bt.setBackgroundDrawable(gd);
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fl_content_main , new BT_Fragment());
         fragmentTransaction.commit();
