@@ -17,7 +17,7 @@ public class GiftActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gift);
-        initView();
+
 
         String msg = getIntent().getStringArrayListExtra("msg").get(0)+","+getIntent().getStringArrayListExtra("msg").get(1)+","+getIntent().getStringArrayListExtra("msg").get(2);
         Logger.msg("sdk接收信息："+ msg);
@@ -30,11 +30,4 @@ public class GiftActivity extends AppCompatActivity {
         });
     }
 
-    private void initView() {
-        iv_gift_back = (ImageView) findViewById(R.id.iv_user_back);
-    }
-
-    void back2game(){
-
-    }
 }

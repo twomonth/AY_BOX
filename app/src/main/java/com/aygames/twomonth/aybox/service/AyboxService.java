@@ -10,6 +10,7 @@ import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.aygames.twomonth.aybox.bean.Game;
 import com.aygames.twomonth.aybox.bean.SmallCode;
 import com.aygames.twomonth.aybox.utils.Constans;
 import com.aygames.twomonth.aybox.utils.Util;
@@ -47,6 +48,9 @@ public class AyboxService extends Service {
     public static boolean isLogin;
     public static int fbkg;//浮标控制开关
     private static  ArrayList<SmallCode> list;
+
+    public static ArrayList<Game> banner = new ArrayList();
+
     public AyboxService() {
         Log.i(TAG,"服务初始化");
     }

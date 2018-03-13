@@ -181,9 +181,12 @@
         <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.DownloadingActivity" />
         <activity android:name=".activity.NewsActivity" />
-        <activity android:name=".activity.GiftOneActivity"
-            android:exported="true"/>
-        <activity android:name=".activity.RebateOrderActivity"></activity>
+        <activity
+            android:name=".activity.GiftOneActivity"
+            android:exported="true" />
+        <activity android:name=".activity.RebateOrderActivity" />
+        <activity android:name=".activity.BTgameActivity" />
+        <activity android:name=".activity.ManVActivity"></activity>
     </application>
 
 </manifest>

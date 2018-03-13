@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.aygames.twomonth.aybox.activity.BTgameActivity">
+    <RelativeLayout
+        android:id="@+id/ll_btgames_head"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorOrange1">
+        <ImageView
+            android:id="@+id/iv_btgames_back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@mipmap/title_back"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="15dp"
+            android:text="BT手游大集合"/>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -106,11 +106,46 @@
 
             </LinearLayout>
 
+
+            <RelativeLayout
+                android:id="@+id/rl_newgames"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_below="@+id/ll_function">
+
+                <TextView
+                    android:id="@+id/tv_newgames"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="新游"
+                    android:textColor="@color/colorOrange1" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@+id/tv_newgames"
+                    android:layout_alignRight="@+id/tv_newgames"
+                    android:layout_below="@+id/tv_newgames"
+                    android:background="@color/colorAccent" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycle_newgames"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_newgames"
+                    android:layout_marginTop="5dp">
+                </android.support.v7.widget.RecyclerView>
+
+
+            </RelativeLayout>
+
+
             <RelativeLayout
                 android:id="@+id/rl_tuijian"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/ll_function"
+                android:layout_below="@+id/rl_newgames"
                 android:padding="5dp">
 
                 <TextView
@@ -149,7 +184,7 @@
                     android:id="@+id/tv_gameall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="全部"
+                    android:text="热门"
                     android:textColor="@color/colorOrange1" />
 
                 <View

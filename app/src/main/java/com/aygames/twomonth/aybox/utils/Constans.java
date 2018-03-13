@@ -6,7 +6,7 @@ package com.aygames.twomonth.aybox.utils;
 
 public class Constans {
 
-    public static final String URL = "http://sdk.aooyou.com/index.php/";
+    public static final String URL = "http://sysdk.syyouxi.com/index.php/";
     //注册
     public static final String URL_REGISTER = URL + "UserAPI/getusermobile";
     //登录
@@ -31,5 +31,7 @@ public class Constans {
     public static final String URL_GET_SIGN_WX = URL + "";
     //微信回调
     public static final String URL_WXPAY_CALLBACK = URL + "";
+    //满V游戏接口地址
+    public static final String URL_MANV = URL +"DataGames/getMVGames";
 
 }

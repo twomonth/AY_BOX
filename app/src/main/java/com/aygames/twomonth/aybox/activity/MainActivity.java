@@ -74,18 +74,20 @@ public class MainActivity extends AppCompatActivity {
 //                fragmentTransaction.commit();
 //            }
 //        });
-        iv_user.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (AyboxService.isLogin == true){
-                    Intent intent = new Intent(MainActivity.this,UserActivity.class);
-                    startActivity(intent);
-                }else {
-                    Intent intent1 = new Intent(MainActivity.this,LoginActivity.class);
-                    startActivity(intent1);
-                }
-            }
-        });
+
+
+//        iv_user.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (AyboxService.isLogin == true){
+//                    Intent intent = new Intent(MainActivity.this,UserActivity.class);
+//                    startActivity(intent);
+//                }else {
+//                    Intent intent1 = new Intent(MainActivity.this,LoginActivity.class);
+//                    startActivity(intent1);
+//                }
+//            }
+//        });
 
         iv_share.setOnClickListener(new View.OnClickListener() {
             @Override

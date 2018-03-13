@@ -14,9 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.aygames.twomonth.aybox.R;
-import com.aygames.twomonth.aybox.fragment.Bt_Gift_Fragment;
-import com.aygames.twomonth.aybox.fragment.Bt_News_Fragment;
-import com.aygames.twomonth.aybox.fragment.Bt_Start_Fragment;
+
 import com.aygames.twomonth.aybox.fragment.Rebate_Fragment;
 import com.aygames.twomonth.aybox.fragment.Rebate_Fragment_order;
 import com.aygames.twomonth.aybox.utils.Logger;
@@ -52,7 +50,7 @@ public class RebateActivity extends AppCompatActivity {
         }
         ButterKnife.bind(this);
 
-//        initData();
+        initData();
 
     }
 

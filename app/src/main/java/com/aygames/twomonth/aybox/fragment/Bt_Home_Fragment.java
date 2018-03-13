@@ -5,22 +5,26 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ToxicBakery.viewpager.transforms.CubeOutTransformer;
 import com.aygames.twomonth.aybox.R;
+import com.aygames.twomonth.aybox.activity.BTgameActivity;
 import com.aygames.twomonth.aybox.activity.GameActivity;
+import com.aygames.twomonth.aybox.activity.ManVActivity;
+import com.aygames.twomonth.aybox.activityfb.RebateActivity;
 import com.aygames.twomonth.aybox.adapter.GameAllAdapter;
 import com.aygames.twomonth.aybox.adapter.SmallAdapter;
 import com.aygames.twomonth.aybox.bean.Game;
+import com.aygames.twomonth.aybox.service.AyboxService;
 import com.aygames.twomonth.aybox.utils.DialogUtil;
 import com.aygames.twomonth.aybox.utils.Logger;
 import com.bigkoo.convenientbanner.ConvenientBanner;
@@ -35,11 +39,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
-
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-
 import okhttp3.Response;
 
 /**
@@ -54,15 +55,17 @@ public class Bt_Home_Fragment extends Fragment {
     private ConvenientBanner convenientBanner;
     private ArrayList<Game> arrayListBanner;
     private ArrayList<Game> arrayListTuijian;
+    private ArrayList<Game> arrayListNewGames;
 //    private ArrayList<Game> arrayListGameAll;
     private ArrayList<Game> arrayList1,arrayList2,arrayList3,arrayList4;
-    private RecyclerView recycle_game1,recycle_game2,recycle_game3,recycle_game4;
+    private RecyclerView recycle_game1,recycle_game2,recycle_game3,recycle_game4,recycle_newgames;
     private ImageView iv_hltuijian1,iv_hltuijian2,iv_hltuijian3,iv_hltuijian4;
     private GameAllAdapter adapter1,adapter2,adapter3,adapter4;
-    private SmallAdapter smipleAdapter;
+    private SmallAdapter smipleAdapter,smipleAdapter_newgames;
     private JSONArray jsonArray_hltuijian;
     private View view ;
     private TextView tv_click;
+    private RelativeLayout rl_bt,rl_manv,rl_fuli,rl_fanli;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -70,6 +73,35 @@ public class Bt_Home_Fragment extends Fragment {
         initView();
         initData();
 
+        rl_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), BTgameActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        rl_manv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ManVActivity.class);
+                startActivity(intent);
+            }
+        });
+        rl_fuli.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), RebateActivity.class);
+                startActivity(intent);
+            }
+        });
+        rl_fanli.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), RebateActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
@@ -92,6 +124,13 @@ public class Bt_Home_Fragment extends Fragment {
         iv_hltuijian3 = view.findViewById(R.id.iv_hltuijian3);
         iv_hltuijian4 = view.findViewById(R.id.iv_hltuijian4);
 
+        rl_bt = view.findViewById(R.id.rl_bt);
+        rl_manv = view.findViewById(R.id.rl_manv);
+        rl_fuli = view.findViewById(R.id.rl_fuli);
+        rl_fanli = view.findViewById(R.id.rl_fanli);
+
+        recycle_newgames = view.findViewById(R.id.recycle_newgames);
+
         DialogUtil.showDialog(getContext(),"正在请求数据");
     }
     private void initData() {
@@ -100,24 +139,37 @@ public class Bt_Home_Fragment extends Fragment {
             @Override
             public void run() {
                 try {
-                    Response response = OkGo.get("http://sdk.aooyou.com/index.php/DataGames/getGames").execute();
+                    Response response = OkGo.get("http://sysdk.syyouxi.com/index.php/DataGames/getGames").execute();
                     JSONObject jsonObject = new JSONObject(response.body().string());
                     JSONArray jsonArray_banner = jsonObject.getJSONArray("banner");
                     JSONArray jsonArary_listtj = jsonObject.getJSONArray("listtj");
                     JSONArray jsonArary_gameall = jsonObject.getJSONArray("gameall");
+                    JSONArray jsonArray_newgames = jsonObject.getJSONArray("newgames");
                     jsonArray_hltuijian = jsonObject.getJSONArray("hltj");
+
                     Logger.msg("轮播："+jsonArray_banner.toString());
                     Logger.msg("列表："+jsonArary_listtj.toString());
                     Logger.msg("所有："+jsonArary_gameall.toString());
 
                     arrayListBanner = new ArrayList<>();
                     arrayListTuijian = new ArrayList<>();
+                    arrayListNewGames = new ArrayList<>();
                     arrayList1 = new ArrayList<>();
                     arrayList2 = new ArrayList<>();
                     arrayList3 = new ArrayList<>();
                     arrayList4 = new ArrayList<>();
 //                    arrayListGameAll = new ArrayList<>();
 //                    arrayListHLtuijian = new ArrayList<>();
+                    //新游
+                    for (int i = 0; i < jsonArray_newgames.length(); i++) {
+                        JSONObject jsonObject_newgames = jsonArray_newgames.getJSONObject(i);
+                        Game game = new Game(jsonObject_newgames.getString("ico_url"),
+                                jsonObject_newgames.getString("app_name_cn"),
+                                jsonObject_newgames.getString("gid")
+                        );
+                        arrayListNewGames.add(game);
+
+                    }
                     //banner 列表
                     for (int i = 0 ;i < jsonArray_banner.length();i++){
                         JSONObject jsonObject_banner = jsonArray_banner.getJSONObject(i);
@@ -128,6 +180,7 @@ public class Bt_Home_Fragment extends Fragment {
                         arrayListBanner.add(game);
                         Logger.msg(game.ico_url+"=="+game.app_name_cn);
                     }
+                    AyboxService.banner = arrayListBanner;
                     //推荐列表
                     for (int i = 0; i < jsonArary_listtj.length(); i++) {
                         JSONObject jsonObject_tj = jsonArary_listtj.getJSONObject(i);
@@ -176,16 +229,20 @@ public class Bt_Home_Fragment extends Fragment {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        //新游
+                        smipleAdapter_newgames = new SmallAdapter(getContext(),arrayListNewGames);
+                        recycle_newgames.setAdapter(smipleAdapter_newgames);
+                        LinearLayoutManager linearLayoutManager_newgames = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
+                        recycle_newgames.setLayoutManager(linearLayoutManager_newgames);
+                        //推荐
                         smipleAdapter = new SmallAdapter(getContext(),  arrayListTuijian);
                         recyclerView.setAdapter(smipleAdapter);
                         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
                         recyclerView.setLayoutManager(linearLayoutManager);
-
 //                        gameAllAdapter = new GameAllAdapter(getContext(),arrayListGameAll);
 //                        recycle_gameall.setAdapter(gameAllAdapter);
 //                        LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
 //                        recycle_gameall.setLayoutManager(linearLayoutManager1);
-
 //                        FullyLinearLayoutManager linearLayoutManager3 = new FullyLinearLayoutManager(getContext());
 //                        recycle_gameall.setNestedScrollingEnabled(false);
 //                        recycle_gameall.setLayoutManager(linearLayoutManager3);
@@ -317,6 +374,22 @@ public class Bt_Home_Fragment extends Fragment {
 
                             }
                         });
+
+                        smipleAdapter_newgames.setOnItemClickListener(new SmallAdapter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                Toast.makeText(getContext(),arrayListNewGames.get(position).app_name_cn,Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getContext(), GameActivity.class);
+                                intent.putExtra("gid",arrayListNewGames.get(position).gid);
+                                intent.putExtra("type",1);
+                                startActivity(intent);
+                            }
+
+                            @Override
+                            public void onItemLongClick(View view, int position) {
+
+                            }
+                        });
                         adapter1.setOnItemClickListener(new GameAllAdapter.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
@@ -402,7 +475,7 @@ public class Bt_Home_Fragment extends Fragment {
     }
 
     //A、网络图片
-    public class NetworkImageHolderView implements Holder<String> {
+    public static class NetworkImageHolderView implements Holder<String> {
         private ImageView imageView;
         @Override
         public View createView(Context context) {

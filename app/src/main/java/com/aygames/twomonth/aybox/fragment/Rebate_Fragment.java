@@ -1,5 +1,6 @@
 package com.aygames.twomonth.aybox.fragment;
 
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -20,8 +21,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
+
 import okhttp3.Response;
 
 /**
@@ -41,7 +41,7 @@ public class Rebate_Fragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_rebate,null);
         recyclerView = view.findViewById(R.id.recycle_rebate_task);
-        initData();
+//        initData();
 
         return view;
     }

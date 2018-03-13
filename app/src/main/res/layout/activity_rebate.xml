@@ -3,16 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.aygames.twomonth.aybox.activityfb.RebateActivity">
     <RelativeLayout
         android:id="@+id/ll_rebater_head"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:background="@color/colorOrange1">
         <ImageView
             android:id="@+id/iv_rebater_back"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:background="@mipmap/title_back"/>
@@ -21,21 +22,28 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:textColor="@color/colorWhite"
-            android:textSize="30dp"
+            android:textSize="15dp"
             android:text="返利"/>
     </RelativeLayout>
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_rebate"
         android:layout_below="@+id/ll_rebater_head"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true">
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_centerHorizontal="true"
+        app:tabBackground="@color/colorWhiteAndBlack"
+        app:tabIndicatorHeight="3dp"
+        app:tabTextColor="@color/colorBlack"
+        app:tabSelectedTextColor="@color/colorOrange1"
+        app:tabMode="fixed"
+        app:tabTextAppearance="@style/TabLayoutTextStyle">
     </android.support.design.widget.TabLayout>
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager_rebate"
         android:layout_below="@+id/tab_rebate"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     </android.support.v4.view.ViewPager>
 

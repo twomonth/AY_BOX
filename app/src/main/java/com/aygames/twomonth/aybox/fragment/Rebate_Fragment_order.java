@@ -1,7 +1,9 @@
 package com.aygames.twomonth.aybox.fragment;
 
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,17 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.aygames.twomonth.aybox.R;
-import com.aygames.twomonth.aybox.service.AyboxService;
-import com.lzy.okgo.OkGo;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-
-import java.io.IOException;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import okhttp3.Response;
 
 /**
  * Created by Administrator on 2018/2/8.

@@ -41,6 +41,14 @@
         android:textColor="@color/colorPrimary"
         android:text="120M"/>
     <TextView
+        android:id="@+id/tv_download_count"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/tv_size_all"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="下载人数"/>
+    <TextView
         android:id="@+id/tv_publicty_all"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
