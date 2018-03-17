@@ -33,5 +33,17 @@ public class Constans {
     public static final String URL_WXPAY_CALLBACK = URL + "";
     //满V游戏接口地址
     public static final String URL_MANV = URL +"DataGames/getMVGames";
+    //BT游戏接口地址
+    public static final String URL_BTGAME = URL + "DataGames/getBTGames";
+    //游戏详情页面
+    public static final String URL_GAME = URL + "/DataGames/getGameinfo/gid/";
+    //返利任务获取
+    public static final String URL_FANLITASK = URL + "DataGames/getUserFanli/passport/";
+    //返利订单获取
+    public static final String URL_FANLIORDER = URL + "DataGames/getFanlilist/passport/";
+    //游戏中心
+    public static final String URL_CENTER_GAME = URL + "DataGames/getLabel";
+    //返利订单发送
+    public static final String URL_REBATEORDER = URL + "DataGames/getfanliData/";
 
 }

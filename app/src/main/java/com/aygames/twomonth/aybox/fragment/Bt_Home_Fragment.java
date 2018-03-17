@@ -19,6 +19,7 @@ import com.ToxicBakery.viewpager.transforms.CubeOutTransformer;
 import com.aygames.twomonth.aybox.R;
 import com.aygames.twomonth.aybox.activity.BTgameActivity;
 import com.aygames.twomonth.aybox.activity.GameActivity;
+import com.aygames.twomonth.aybox.activity.LoginActivity;
 import com.aygames.twomonth.aybox.activity.ManVActivity;
 import com.aygames.twomonth.aybox.activityfb.RebateActivity;
 import com.aygames.twomonth.aybox.adapter.GameAllAdapter;
@@ -98,8 +99,12 @@ public class Bt_Home_Fragment extends Fragment {
         rl_fanli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), RebateActivity.class);
-                startActivity(intent);
+                if (AyboxService.isLogin == true){
+                    Intent intent = new Intent(getActivity(), RebateActivity.class);
+                    startActivity(intent);
+                }else {
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
+                }
             }
         });
 

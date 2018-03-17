@@ -12,6 +12,7 @@ import com.lzy.okgo.cookie.store.DBCookieStore;
 import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
 import com.lzy.okgo.model.HttpHeaders;
 import com.lzy.okgo.model.HttpParams;
+import com.mob.MobSDK;
 
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
@@ -34,6 +35,8 @@ public class AyBoxApplication extends Application {
         JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
 
+
+        MobSDK.init(this);
 
     }
 

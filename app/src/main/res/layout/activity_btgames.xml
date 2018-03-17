@@ -24,5 +24,12 @@
             android:textSize="15dp"
             android:text="BT手游大集合"/>
     </RelativeLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle_btgame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_btgames_head">
+
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

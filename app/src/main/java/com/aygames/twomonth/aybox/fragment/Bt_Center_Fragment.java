@@ -21,6 +21,7 @@ import com.aygames.twomonth.aybox.R;
 import com.aygames.twomonth.aybox.activity.GameActivity;
 import com.aygames.twomonth.aybox.adapter.GameAllAdapter;
 import com.aygames.twomonth.aybox.bean.Game;
+import com.aygames.twomonth.aybox.utils.Constans;
 import com.lzy.okgo.OkGo;
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
@@ -136,7 +137,7 @@ public class Bt_Center_Fragment extends Fragment {
             @Override
             public void run() {
                 try {
-                    Response response = OkGo.get("http://sdk.aooyou.com/index.php/DataGames/getLabel").execute();
+                    Response response = OkGo.get(Constans.URL_CENTER_GAME).execute();
                     JSONObject jsonObject = new JSONObject(response.body().string());
                     jsonArray_type = jsonObject.getJSONArray("3");
                     jsonArray_ticai = jsonObject.getJSONArray("4");

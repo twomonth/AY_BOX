@@ -18,6 +18,7 @@ import com.aygames.twomonth.aybox.R;
 import com.aygames.twomonth.aybox.adapter.PictureAdapter;
 import com.aygames.twomonth.aybox.bean.ApkModel;
 import com.aygames.twomonth.aybox.listener.LogDownloadListener;
+import com.aygames.twomonth.aybox.utils.Constans;
 import com.aygames.twomonth.aybox.utils.Logger;
 import com.bumptech.glide.Glide;
 import com.lzy.okgo.OkGo;
@@ -120,7 +121,7 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    Response response = OkGo.get("http://sdk.aooyou.com/index.php/DataGames/getGameinfo/gid/" + GID).execute();
+                    Response response = OkGo.get(Constans.URL_GAME + GID).execute();
 //                    Logger.msg("游戏获取数据："+response.body().string());
                     jsonObject = new JSONObject(response.body().string());
                     name = jsonObject.getString("name");

@@ -15,9 +15,11 @@ public class RebateTask implements Serializable {
     public String nickname;
     public String server;
     public String roleid;
+    public String heroname;
     public String icon_url;
     public String gamename;
     public String diff_amount;
     public int code;
+    public String fl_orderid;
 
 }

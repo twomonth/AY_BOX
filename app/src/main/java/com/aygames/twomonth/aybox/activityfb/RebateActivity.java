@@ -12,12 +12,18 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.aygames.twomonth.aybox.R;
 
+import com.aygames.twomonth.aybox.bean.MessageEvent;
 import com.aygames.twomonth.aybox.fragment.Rebate_Fragment;
 import com.aygames.twomonth.aybox.fragment.Rebate_Fragment_order;
 import com.aygames.twomonth.aybox.utils.Logger;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +40,7 @@ public class RebateActivity extends AppCompatActivity {
     @Bind(R.id.viewpager_rebate)
     ViewPager viewPager;
     private List<Pair<String,Fragment>> items;
+    Fragment rebateFragment,rebateFragmentOrder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,15 +56,17 @@ public class RebateActivity extends AppCompatActivity {
             }
         }
         ButterKnife.bind(this);
-
         initData();
+        EventBus.getDefault().register(this);
 
     }
 
     private void initData() {
+        rebateFragment = new Rebate_Fragment();
+        rebateFragmentOrder = new Rebate_Fragment_order();
         items = new ArrayList<>();
-        items.add(new Pair<String, Fragment>("任务", new Rebate_Fragment()));
-        items.add(new Pair<String, Fragment>("订单", new Rebate_Fragment_order()));
+        items.add(new Pair<String, Fragment>("任务", rebateFragment));
+        items.add(new Pair<String, Fragment>("订单", rebateFragmentOrder));
         viewPager.setAdapter(new MainAdapter(getSupportFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
     }
@@ -89,4 +98,27 @@ public class RebateActivity extends AppCompatActivity {
             return items.get(position).first;
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().unregister(this);
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void Event(MessageEvent messageEvent) {
+        if (messageEvent.getMessage().equals("success")){
+            Toast.makeText(this,"提交成功等待人工审核",Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this,messageEvent.getMessage(),Toast.LENGTH_SHORT).show();
+            initData();
+
+        }else {
+            Toast.makeText(this,"提交失败，请联系客服",Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this,messageEvent.getMessage(),Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 }

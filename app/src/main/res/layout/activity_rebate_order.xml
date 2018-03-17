@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBlackBack"
+    android:background="#85030303"
     tools:context="com.aygames.twomonth.aybox.activity.RebateOrderActivity">
 
     <RelativeLayout
@@ -81,6 +81,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:editable="false"
+            android:textColor="@color/colorGray"
             android:layout_alignBottom="@+id/smallcode_name"
             android:layout_toRightOf="@+id/smallcode_name" />
 
@@ -89,6 +90,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:editable="false"
+            android:textColor="@color/colorGray"
             android:layout_alignBottom="@+id/gamename"
             android:layout_toRightOf="@+id/gamename" />
 
@@ -96,7 +98,7 @@
             android:id="@+id/et_service"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:editable="false"
+
             android:layout_alignBottom="@+id/smallcode_service"
             android:layout_toRightOf="@+id/smallcode_service" />
 
@@ -104,7 +106,7 @@
             android:id="@+id/et_heroname"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:editable="false"
+
             android:layout_alignBottom="@+id/heroname"
             android:layout_toRightOf="@+id/heroname" />
 
@@ -113,6 +115,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:editable="false"
+            android:textColor="@color/colorGray"
             android:layout_alignBottom="@+id/rebate_money"
             android:layout_toRightOf="@+id/rebate_money" />
 

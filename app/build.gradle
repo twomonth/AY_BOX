@@ -1,4 +1,30 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.mob.sdk'
+
+MobSDK {
+    appKey "1c5ca60861105"
+    appSecret "46755979abc5a28cdfaa3259eda3ab8d"
+
+    ShareSDK {
+        devInfo {
+            SinaWeibo {
+                appKey "4141046080"
+                appSecret "4979e8a0484aac38e95e85dcc4f5b430"
+                callbackUri "http://www.ofwan.com"
+                shareByAppClient false
+            }
+            Wechat {
+                appId "wx59f3fbc7e022d323"
+                appSecret "1fb0ee8132c3f7f8852d54daa226c8a6"
+            }
+            QZone {
+                appId "1106460053"
+                appSecret "TTuwTRwsB6hbIUtv"
+            }
+
+        }
+    }
+}
 
 android {
     compileSdkVersion 26
@@ -64,4 +90,8 @@ dependencies {
     //下拉刷新recycleview
     compile 'com.wuxiaolong.pullloadmorerecyclerview:library:1.1.2'
     compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
+
+    compile 'org.greenrobot:eventbus:3.0.0'
 }
+
+
