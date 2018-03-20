@@ -10,5 +10,12 @@
         android:layout_height="140dp"
         android:background="@drawable/rl_back"
         app:canLoop="true" />
+    <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
+        android:id="@+id/recycle_find"
+        android:layout_below="@+id/convenientBanner_find"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView>
 
 </RelativeLayout>
