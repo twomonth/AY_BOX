@@ -28,7 +28,6 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
-
     <application
         android:name=".application.AyBoxApplication"
         android:allowBackup="true"
@@ -148,8 +147,6 @@
             android:name="JPUSH_APPKEY"
             android:value="2a1c6b96a4ccb4ee942179bf" />
 
-
-
         <service
             android:name=".service.AyboxService"
             android:enabled="true"
@@ -179,37 +176,33 @@
             android:exported="true" />
         <activity android:name=".activity.RebateOrderActivity" />
         <activity android:name=".activity.BTgameActivity" />
-        <activity android:name=".activity.ManVActivity"></activity>
-
-
-
-
+        <activity android:name=".activity.ManVActivity" />
         <activity
-            android:name="com.mob.tools.MobUIShell"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:windowSoftInputMode="stateHidden|adjustResize" >
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-
-            <!-- 调用新浪原生SDK，需要注册的回调activity -->
+        <!-- QQ登录鉴权页面 -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
             <intent-filter>
-                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-
-            <!--集成line客户端登录授权，需要添如下格式的过滤器-->
-            <intent-filter>
-                <data android:scheme="line.1477692153" />
-                <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="tencent1106460053" />
             </intent-filter>
-
         </activity>
-        <!-- 填写您从Mob开发者后台中得到的Appkey和AppSecret -->
-        <meta-data android:name="Mob-AppKey" android:value="1c5ca60861105"/>
-        <meta-data android:name="Mob-AppSecret" android:value="46755979abc5a28cdfaa3259eda3ab8d"/>
-
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name=".activity.ShareActivity"></activity>
     </application>
 
 </manifest>

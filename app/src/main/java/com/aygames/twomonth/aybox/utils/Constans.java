@@ -46,4 +46,5 @@ public class Constans {
     //返利订单发送
     public static final String URL_REBATEORDER = URL + "DataGames/getfanliData/";
 
+    public static final String APP_ID = "wx59f3fbc7e022d323";
 }

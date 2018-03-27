@@ -1,12 +1,13 @@
 package com.aygames.twomonth.aybox.activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.DrawerLayout;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,22 +17,40 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
 import com.aygames.twomonth.aybox.R;
 import com.aygames.twomonth.aybox.fragment.BT_Fragment;
-import com.aygames.twomonth.aybox.fragment.H5_Fragment;
 import com.aygames.twomonth.aybox.service.AyboxService;
+import com.aygames.twomonth.aybox.tencent.BaseUiListener;
+import com.aygames.twomonth.aybox.utils.Constans;
+import com.tencent.connect.share.QQShare;
+import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
+import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
+import com.tencent.mm.opensdk.modelmsg.WXTextObject;
+import com.tencent.mm.opensdk.modelmsg.WXWebpageObject;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import com.tencent.tauth.Tencent;
+
+import java.io.ByteArrayOutputStream;
+
+import static com.tencent.mm.opensdk.modelmsg.SendMessageToWX.Req.WXSceneSession;
 
 
 public class MainActivity extends AppCompatActivity {
 
+
+
+    Tencent mTencent;
+
     private RelativeLayout drawerLayout ;
     private TextView tv_h5,tv_bt;
     private FrameLayout fl_content_main;
-    private ImageView iv_user,iv_share;
+    private ImageView iv_shares,iv_share;
     FragmentTransaction fragmentTransaction;
     FragmentManager fragmentManager = getSupportFragmentManager();
     @Override
@@ -97,6 +116,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        iv_shares.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+
+
+
+
+            }
+        });
+
     }
 
     private void initData() {
@@ -117,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
         tv_h5 = (TextView) findViewById(R.id.tv_h5);
         tv_bt = (TextView) findViewById(R.id.tv_bt);
         iv_share = (ImageView) findViewById(R.id.iv_share);
-        iv_user = (ImageView) findViewById(R.id.iv_user);
+        iv_shares = findViewById(R.id.iv_shares);
         fl_content_main = (FrameLayout) findViewById(R.id.fl_content_main);
 
     }
@@ -165,4 +197,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         return super.onKeyDown(keyCode, event);
     }
+
 }

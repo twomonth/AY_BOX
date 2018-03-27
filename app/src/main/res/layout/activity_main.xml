@@ -15,15 +15,15 @@
             android:layout_alignParentTop="true"
             android:orientation="horizontal"
             android:background="@color/colorOrange1">
+
             <ImageView
-                android:id="@+id/iv_user"
+                android:id="@+id/iv_shares"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:layout_alignParentLeft="true"
                 android:background="@mipmap/ic_down_main_black"
-                android:visibility="gone"
                 />
             <ImageView
                 android:id="@+id/iv_share"
